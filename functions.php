@@ -15,50 +15,79 @@
 	Theme Support
 \*------------------------------------*/
 
-if (!isset($content_width))
-{
-    $content_width = 900;
-}
-
 if (function_exists('add_theme_support'))
 {
-    // Add Menu Support
-    add_theme_support('menus');
+	// Add Menu Support
+	add_theme_support('menus');
 
-    // Add Thumbnail Theme Support
-    add_theme_support('post-thumbnails');
-    // add_image_size('large', 700, '', true); // Large Thumbnail
-    // add_image_size('medium', 250, '', true); // Medium Thumbnail
-    // add_image_size('small', 120, '', true); // Small Thumbnail
-    // add_image_size('custom-size', 700, 200, true); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
+	// Add Thumbnail Theme Support
+	add_theme_support('post-thumbnails');
+	// add_image_size('large', 700, '', true); // Large Thumbnail
+	// add_image_size('medium', 250, '', true); // Medium Thumbnail
+	// add_image_size('small', 120, '', true); // Small Thumbnail
+	// add_image_size('custom-size', 700, 200, true); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
 
 
-    // Enables post and comment RSS feed links to head
-    add_theme_support('automatic-feed-links');
+	// Enables post and comment RSS feed links to head
+	add_theme_support('automatic-feed-links');
 
-    // Localisation Support
-    load_theme_textdomain('html5blank', get_template_directory() . '/languages');
+	// Localisation Support
+	load_theme_textdomain('html5blank', get_template_directory() . '/languages');
 }
 
 /*------------------------------------*\
 	Functions
 \*------------------------------------*/
 
-// Load scripts (header.php)
-// function html5blank_header_scripts()
-// {
-//     if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
-//
-//     	wp_register_script('conditionizr', get_template_directory_uri() . '/js/lib/conditionizr-4.3.0.min.js', array(), '4.3.0'); // Conditionizr
-//         wp_enqueue_script('conditionizr'); // Enqueue it!
-//
-//         wp_register_script('modernizr', get_template_directory_uri() . '/js/lib/modernizr-2.7.1.min.js', array(), '2.7.1'); // Modernizr
-//         wp_enqueue_script('modernizr'); // Enqueue it!
-//
-//         wp_register_script('html5blankscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
-//         wp_enqueue_script('html5blankscripts'); // Enqueue it!
-//     }
-// }
+// HTML5 Blank navigation
+function html5blank_nav()
+{
+	wp_nav_menu(
+	array(
+		'theme_location'  => 'header-menu',
+		'menu'            => '',
+		'container'       => 'div',
+		'container_class' => 'menu-{menu slug}-container',
+		'container_id'    => '',
+		'menu_class'      => 'menu',
+		'menu_id'         => '',
+		'echo'            => true,
+		'fallback_cb'     => 'wp_page_menu',
+		'before'          => '',
+		'after'           => '',
+		'link_before'     => '',
+		'link_after'      => '',
+		'items_wrap'      => '<ul>%3$s</ul>',
+		'depth'           => 0,
+		'walker'          => ''
+		)
+	);
+}
+
+// Load HTML5 Blank scripts (header.php)
+function html5blank_header_scripts()
+{
+    if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
+
+    	wp_register_script('conditionizr', get_template_directory_uri() . '/js/lib/conditionizr-4.3.0.min.js', array(), '4.3.0'); // Conditionizr
+        wp_enqueue_script('conditionizr'); // Enqueue it!
+
+        wp_register_script('modernizr', get_template_directory_uri() . '/js/lib/modernizr-2.7.1.min.js', array(), '2.7.1'); // Modernizr
+        wp_enqueue_script('modernizr'); // Enqueue it!
+
+        wp_register_script('html5blankscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
+        wp_enqueue_script('html5blankscripts'); // Enqueue it!
+    }
+}
+
+// Load HTML5 Blank conditional scripts
+function html5blank_conditional_scripts()
+{
+    if (is_page('pagenamehere')) {
+        wp_register_script('scriptname', get_template_directory_uri() . '/js/scriptname.js', array('jquery'), '1.0.0'); // Conditional script(s)
+        wp_enqueue_script('scriptname'); // Enqueue it!
+    }
+}
 
 // Load HTML5 Blank styles
 function html5blank_styles()
@@ -69,6 +98,9 @@ function html5blank_styles()
     wp_register_style('html5blank', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
     wp_enqueue_style('html5blank'); // Enqueue it!
 }
+
+
+
 
 // Add page slug to body class, love this - Credit: Starkers Wordpress Theme
 function add_slug_to_body_class($classes)
@@ -88,25 +120,48 @@ function add_slug_to_body_class($classes)
     return $classes;
 }
 
+
+
 // Pagination for paged posts, Page 1, Page 2, Page 3, with Next and Previous Links, No plugin
-// function html5wp_pagination()
+function html5wp_pagination()
+{
+    global $wp_query;
+    $big = 999999999;
+    echo paginate_links(array(
+        'base' => str_replace($big, '%#%', get_pagenum_link($big)),
+        'format' => '?paged=%#%',
+        'current' => max(1, get_query_var('paged')),
+        'total' => $wp_query->max_num_pages
+    ));
+}
+
+
+
+// Create the Custom Excerpts callback
+function html5wp_excerpt($length_callback = '', $more_callback = '')
+{
+    global $post;
+    if (function_exists($length_callback)) {
+        add_filter('excerpt_length', $length_callback);
+    }
+    if (function_exists($more_callback)) {
+        add_filter('excerpt_more', $more_callback);
+    }
+    $output = get_the_excerpt();
+    $output = apply_filters('wptexturize', $output);
+    $output = apply_filters('convert_chars', $output);
+    $output = '<p>' . $output . '</p>';
+    echo $output;
+}
+
+// // Custom View Article link to Post
+// function html5_blank_view_article($more)
 // {
-//     global $wp_query;
-//     $big = 999999999;
-//     echo paginate_links(array(
-//         'base' => str_replace($big, '%#%', get_pagenum_link($big)),
-//         'format' => '?paged=%#%',
-//         'current' => max(1, get_query_var('paged')),
-//         'total' => $wp_query->max_num_pages
-//     ));
+//     global $post;
+//     return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('View Article', 'html5blank') . '</a>';
 // }
 
 
-
-
-/*------------------------------------*\
-	Actions + Filters + ShortCodes
-\*------------------------------------*/
 
 
 /*------------------------------------*\
