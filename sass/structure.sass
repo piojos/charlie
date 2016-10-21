@@ -1,22 +1,88 @@
-// // wrapper
-// .wrapper
-//
-//
+// wrapper
+.wrap
+	max-width: 80em
+	margin-left: auto
+	margin-right: auto
+
+
+
+
 // header
 header
 	text-align: center
+	// text-transform: uppercase
 	.dt_nav
-		margin: 1em 0
+		margin-top: 1em
+		margin-bottom: 1em
 		> a
 			margin: 0 3em
+			width: 6em
+			display: inline-block
 			&:nth-last-child(1)
 				margin-right: 0
 			&:nth-child(1)
-				margin-left: 0 
+				margin-left: 0
+			@media screen and (max-width: 1000px)
+				margin: 0 2em
+			@media screen and (max-width: 800px)
+				margin: 0 1.5em
+				font-family: $FlamaCnBold
+				width: 4em
+			&.logo
+				width: initial
+		@media screen and (max-width: 600px)
+			display: none
 	img
 		vertical-align: middle
-//
-//
+	.mobile.bar
+		display: none
+		background: $yellow
+		padding: .75em 1em
+		text-align: left
+		h1
+			font-family: $FlamaBold
+			font-size: .85em
+			margin-left: 1em
+			display: inline-block
+		@media screen and (max-width: 600px)
+			display: block
+
+
+.stripe
+	background: $yellow
+	text-align: center
+	padding: .5em 1em
+	font-family: $FlamaCnBold
+	text-transform: uppercase
+	font-size: .75em
+	.text_promo
+		font-size: 2em
+		font-family: $FlamaCn
+		display: inline-block
+		max-width: 440px
+		white-space: nowrap
+		overflow: hidden
+		text-overflow: ellipsis
+		strong
+			font-family: $FlamaCnBold
+		@media screen and (max-width: 600px)
+			font-size: 1.25em
+	span:nth-child(1),
+	span:nth-last-child(1)
+		position: relative
+		top: .5em
+		@media screen and (max-width: 600px)
+			top: .2em
+	span:nth-child(1)
+		float: left
+	span:nth-last-child(1)
+		float: right
+	@media screen and (max-width: 425px)
+		display: none
+
+
+
+
 // // nav
 // .nav
 //

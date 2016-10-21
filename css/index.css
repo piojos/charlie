@@ -92,18 +92,88 @@ a {
 .hide {
   display: none; }
 
+.wrap {
+  max-width: 80em;
+  margin-left: auto;
+  margin-right: auto; }
+
 header {
   text-align: center; }
   header .dt_nav {
-    margin: 1em 0; }
+    margin-top: 1em;
+    margin-bottom: 1em; }
     header .dt_nav > a {
-      margin: 0 3em; }
+      margin: 0 3em;
+      width: 6em;
+      display: inline-block; }
       header .dt_nav > a:nth-last-child(1) {
         margin-right: 0; }
       header .dt_nav > a:nth-child(1) {
         margin-left: 0; }
+      @media screen and (max-width: 1000px) {
+        header .dt_nav > a {
+          margin: 0 2em; } }
+      @media screen and (max-width: 800px) {
+        header .dt_nav > a {
+          margin: 0 1.5em;
+          font-family: "FlamaCn Bold", Helvetica, Arial, sans-serif;
+          width: 4em; } }
+      header .dt_nav > a.logo {
+        width: initial; }
+    @media screen and (max-width: 600px) {
+      header .dt_nav {
+        display: none; } }
   header img {
     vertical-align: middle; }
+  header .mobile.bar {
+    display: none;
+    background: #FFDF22;
+    padding: 0.75em 1em;
+    text-align: left; }
+    header .mobile.bar h1 {
+      font-family: "Flama Bold", Helvetica, Arial, sans-serif;
+      font-size: 0.85em;
+      margin-left: 1em;
+      display: inline-block; }
+    @media screen and (max-width: 600px) {
+      header .mobile.bar {
+        display: block; } }
+
+.stripe {
+  background: #FFDF22;
+  text-align: center;
+  padding: 0.5em 1em;
+  font-family: "FlamaCn Bold", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-size: 0.75em; }
+  .stripe .text_promo {
+    font-size: 2em;
+    font-family: "FlamaCn", Helvetica, Arial, sans-serif;
+    display: inline-block;
+    max-width: 440px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; }
+    .stripe .text_promo strong {
+      font-family: "FlamaCn Bold", Helvetica, Arial, sans-serif; }
+    @media screen and (max-width: 600px) {
+      .stripe .text_promo {
+        font-size: 1.25em; } }
+  .stripe span:nth-child(1),
+  .stripe span:nth-last-child(1) {
+    position: relative;
+    top: 0.5em; }
+    @media screen and (max-width: 600px) {
+      .stripe span:nth-child(1),
+      .stripe span:nth-last-child(1) {
+        top: 0.2em; } }
+  .stripe span:nth-child(1) {
+    float: left; }
+  .stripe span:nth-last-child(1) {
+    float: right; }
+  @media screen and (max-width: 425px) {
+    .stripe {
+      display: none; } }
 
 ::selection {
   background: #FFDF22;

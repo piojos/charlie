@@ -36,9 +36,9 @@
 			<a href="<?php echo home_url(); ?>">Sucursales</a>
 			<a href="<?php echo home_url(); ?>">Mr. Brown?</a>
 		</div>
-		<div class="mobile bar hide">
-			<a href="<?php echo home_url(); ?>" class="logo">
-				<img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="Logo" class="real">
+		<div class="mobile bar">
+			<a href="<?php echo home_url(); ?>" class="mobile_logo">
+				<img src="<?php echo get_template_directory_uri(); ?>/img/logo-circle-black.svg" alt="Logo" width="24">
 			</a>
 			<h1 class="breadcrumbs">Inicio / Promos</h1>
 		</div>
@@ -59,4 +59,12 @@
 			<li><a href="#">Something Else</a></li>
 			<li><a href="#">Something Else</a></li>
 		</ul>
+	</div>
+
+	<div class="stripe">
+		<div class="wrap">
+			<span>Buen día Bro</span>
+			<span class="text_promo">Hoy Miercoles <strong>2x1 en Alitas</strong> antes de las 7:00pm</span>
+			<span>HO:UR PM</span>
+		</div>
 	</div>
