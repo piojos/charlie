@@ -25,26 +25,38 @@
 	</head>
 	<body <?php body_class(); ?>>
 
-		<!-- wrapper -->
-		<div class="wrapper">
-
-			<!-- header -->
-			<header class="header clear" role="banner">
-
-					<!-- logo -->
-					<div class="logo">
-						<a href="<?php echo home_url(); ?>">
-							<!-- svg logo - toddmotto.com/mastering-svg-use-for-a-retina-web-fallbacks-with-png-script -->
-							<img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="Logo" class="logo-img">
-						</a>
-					</div>
-					<!-- /logo -->
-
-					<!-- nav -->
-					<nav class="nav" role="navigation">
-						<?php html5blank_nav(); ?>
-					</nav>
-					<!-- /nav -->
-
-			</header>
-			<!-- /header -->
+	<header class="header clear" role="banner">
+		<div class="dt_nav wrap">
+			<a href="<?php echo home_url(); ?>">Promos</a>
+			<a href="<?php echo home_url(); ?>">Menú</a>
+			<a href="<?php echo home_url(); ?>" class="logo">
+				<img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="Logo" class="random hide">
+				<img src="<?php echo get_template_directory_uri(); ?>/img/logo-circle-black.svg" alt="Logo" class="real">
+			</a>
+			<a href="<?php echo home_url(); ?>">Sucursales</a>
+			<a href="<?php echo home_url(); ?>">Mr. Brown?</a>
+		</div>
+		<div class="mobile bar hide">
+			<a href="<?php echo home_url(); ?>" class="logo">
+				<img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="Logo" class="real">
+			</a>
+			<h1 class="breadcrumbs">Inicio / Promos</h1>
+		</div>
+		<nav class="nav mobile hide" role="navigation">
+			<a href="<?php echo home_url(); ?>">Promos</a>
+			<a href="<?php echo home_url(); ?>">Menú</a>
+			<a href="<?php echo home_url(); ?>">Sucursales</a>
+			<a href="<?php echo home_url(); ?>">Mr. Brown?</a>
+			<a href="<?php echo home_url(); ?>" class="sub">Únete al Team</a>
+			<a href="<?php echo home_url(); ?>" class="sub">Contacto</a>
+		</nav>
+	</header>
+	<div class="mobile sub_nav hide">
+		<a href="#" class="currentId">Promos</a>
+		<ul>
+			<li><a href="#">Something Else</a></li>
+			<li><a href="#">Something Else</a></li>
+			<li><a href="#">Something Else</a></li>
+			<li><a href="#">Something Else</a></li>
+		</ul>
+	</div>

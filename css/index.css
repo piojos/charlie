@@ -55,33 +55,67 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   font-smoothing: antialiased;
   text-rendering: optimizeLegibility; }
 
+*:focus {
+  outline: 0; }
+
+@font-face {
+  font-family: "Flama";
+  src: url('../fonts/Flama-light.eot?1477027898');
+  src: url('../fonts/Flama-light.eot?&1477027898#iefix') format('embedded-opentype'), url('../fonts/Flama-light.ttf?1477027898') format('truetype'), url('../fonts/Flama-light.otf?1207913754') format('opentype'), url('../fonts/Flama-light.woff?1477027898') format('woff'), url('../fonts/Flama-light.svg?1477027896') format('svg'); }
+@font-face {
+  font-family: "Flama Bold";
+  src: url('../fonts/Flama-black.eot?1477027888');
+  src: url('../fonts/Flama-black.eot?&1477027888#iefix') format('embedded-opentype'), url('../fonts/Flama-black.ttf?1477027888') format('truetype'), url('../fonts/Flama-black.otf?1207913686') format('opentype'), url('../fonts/Flama-black.woff?1477027888') format('woff'), url('../fonts/Flama-black.svg?1477027888') format('svg');
+  font-weight: bold; }
+@font-face {
+  font-family: "FlamaCn";
+  src: url('../fonts/FlamaCond-light.eot?1477027920');
+  src: url('../fonts/FlamaCond-light.eot?&1477027920#iefix') format('embedded-opentype'), url('../fonts/FlamaCond-light.ttf?1477027920') format('truetype'), url('../fonts/FlamaCond-light.otf?1207910354') format('opentype'), url('../fonts/FlamaCond-light.woff?1477027920') format('woff'), url('../fonts/FlamaCond-light.svg?1477027920') format('svg'); }
+@font-face {
+  font-family: "FlamaCn Bold";
+  src: url('../fonts/FlamaCond-bold.eot?1477027906');
+  src: url('../fonts/FlamaCond-bold.eot?&1477027906#iefix') format('embedded-opentype'), url('../fonts/FlamaCond-bold.ttf?1477027906') format('truetype'), url('../fonts/FlamaCond-bold.otf?1207910298') format('opentype'), url('../fonts/FlamaCond-bold.woff?1477027906') format('woff'), url('../fonts/FlamaCond-bold.svg?1477027906') format('svg');
+  font-weight: bold; }
+body {
+  font-family: "Flama", Helvetica, Arial, sans-serif;
+  color: #231F20;
+  font-size: 18px; }
+
 img {
   max-width: 100%; }
 
-a:focus {
-  outline: 0; }
+a {
+  font-family: "Flama Bold", Helvetica, Arial, sans-serif;
+  color: inherit;
+  text-decoration: none; }
 
-a:hover,
-a:active {
-  outline: 0; }
+.hide {
+  display: none; }
 
-input:focus {
-  outline: 0; }
+header {
+  text-align: center; }
+  header .dt_nav {
+    margin: 1em 0; }
+    header .dt_nav > a {
+      margin: 0 3em; }
+      header .dt_nav > a:nth-last-child(1) {
+        margin-right: 0; }
+      header .dt_nav > a:nth-child(1) {
+        margin-left: 0; }
+  header img {
+    vertical-align: middle; }
 
 ::selection {
-  background: #04A4CC;
-  color: #FFF;
-  text-shadow: none; }
+  background: #FFDF22;
+  color: white; }
 
 ::-webkit-selection {
-  background: #04A4CC;
-  color: #FFF;
-  text-shadow: none; }
+  background: #FFDF22;
+  color: white; }
 
 ::-moz-selection {
-  background: #04A4CC;
-  color: #FFF;
-  text-shadow: none; }
+  background: #FFDF22;
+  color: white; }
 
 .alignnone {
   margin: 5px 20px 20px 0; }
