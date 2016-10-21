@@ -1,3 +1,5 @@
+// Reset +
+
 *,
 *:after,
 *:before
@@ -5,27 +7,49 @@
 	-webkit-font-smoothing: antialiased
 	font-smoothing: antialiased
 	text-rendering: optimizeLegibility
+*:focus
+	outline: 0
 
-// body
 
+
+// Type
+
++font-face("Flama", font-files("Flama-light.ttf", "Flama-light.otf", "Flama-light.woff", "Flama-light.svg"), "Flama-light.eot")
++font-face("Flama Bold", font-files("Flama-black.ttf", "Flama-black.otf", "Flama-black.woff", "Flama-black.svg"), "Flama-black.eot", bold)
++font-face("FlamaCn", font-files("FlamaCond-light.ttf", "FlamaCond-light.otf", "FlamaCond-light.woff", "FlamaCond-light.svg"), "FlamaCond-light.eot")
++font-face("FlamaCn Bold", font-files("FlamaCond-bold.ttf", "FlamaCond-bold.otf", "FlamaCond-bold.woff", "FlamaCond-bold.svg"), "FlamaCond-bold.eot", bold)
+
+
+
+
+// Variables
+
+$black: #231F20
+$yellow: #FFDF22
+$white: white
+
+$Flama: "Flama", Helvetica, Arial, sans-serif
+$FlamaBold: "Flama Bold", Helvetica, Arial, sans-serif
+$FlamaCn: "FlamaCn", Helvetica, Arial, sans-serif
+$FlamaCnBold: "FlamaCn Bold", Helvetica, Arial, sans-serif
+
+
+
+
+// Basics
+
+body
+	font-family: $Flama
+	color: $black
+	font-size: 18px
 
 img
 	max-width: 100%
 
 a
-	// color: #444
-	// text-decoration: none
+	font-family: $FlamaBold
+	color: inherit
+	text-decoration: none
 
-a:hover
-	// color: #444
-
-a:focus
-	outline: 0
-
-a:hover,
-a:active
-	outline: 0
-
-input:focus
-	outline: 0
-	// border: 1px solid #04A4CC
+.hide
+	display: none
