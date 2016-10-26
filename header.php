@@ -41,8 +41,9 @@
 				<img src="<?php echo get_template_directory_uri(); ?>/img/logo-circle-black.svg" alt="Logo" width="24">
 			</a>
 			<h1 class="breadcrumbs">Inicio / Promos</h1>
+			<button class="toggle"><span>🍔</span><span class="hide">❌</span></button>
 		</div>
-		<nav class="nav mobile hide" role="navigation">
+		<nav class="nav mobile" role="navigation">
 			<a href="<?php echo home_url(); ?>">Promos</a>
 			<a href="<?php echo home_url(); ?>">Menú</a>
 			<a href="<?php echo home_url(); ?>">Sucursales</a>
