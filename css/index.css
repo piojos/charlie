@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -79,18 +80,25 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 body {
   font-family: "Flama", Helvetica, Arial, sans-serif;
   color: #231F20;
-  font-size: 18px; }
+  font-size: 18px;
+  line-height: normal; }
 
 img {
   max-width: 100%; }
 
 a {
-  font-family: "Flama Bold", Helvetica, Arial, sans-serif;
   color: inherit;
   text-decoration: none; }
 
 .hide {
   display: none; }
+
+button {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background: none;
+  border: 2px solid;
+  font-family: inherit; }
 
 .wrap {
   max-width: 80em;
@@ -105,7 +113,8 @@ header {
     header .dt_nav > a {
       margin: 0 3em;
       width: 6em;
-      display: inline-block; }
+      display: inline-block;
+      font-family: "Flama Bold", Helvetica, Arial, sans-serif; }
       header .dt_nav > a:nth-last-child(1) {
         margin-right: 0; }
       header .dt_nav > a:nth-child(1) {
@@ -125,55 +134,197 @@ header {
         display: none; } }
   header img {
     vertical-align: middle; }
-  header .mobile.bar {
-    display: none;
-    background: #FFDF22;
-    padding: 0.75em 1em;
-    text-align: left; }
-    header .mobile.bar h1 {
-      font-family: "Flama Bold", Helvetica, Arial, sans-serif;
-      font-size: 0.85em;
-      margin-left: 1em;
-      display: inline-block; }
-    @media screen and (max-width: 600px) {
-      header .mobile.bar {
-        display: block; } }
 
 .stripe {
   background: #FFDF22;
   text-align: center;
   padding: 0.5em 1em;
   font-family: "FlamaCn Bold", Helvetica, Arial, sans-serif;
-  text-transform: uppercase;
-  font-size: 0.75em; }
+  text-transform: uppercase; }
   .stripe .text_promo {
     font-size: 2em;
     font-family: "FlamaCn", Helvetica, Arial, sans-serif;
     display: inline-block;
-    max-width: 440px;
+    max-width: 70%;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis; }
+    text-overflow: ellipsis;
+    margin-bottom: -0.2em; }
     .stripe .text_promo strong {
       font-family: "FlamaCn Bold", Helvetica, Arial, sans-serif; }
+    @media screen and (max-width: 800px) {
+      .stripe .text_promo {
+        font-size: 1.5em; } }
     @media screen and (max-width: 600px) {
       .stripe .text_promo {
-        font-size: 1.25em; } }
+        font-size: 1.25em;
+        max-width: 100%; } }
   .stripe span:nth-child(1),
   .stripe span:nth-last-child(1) {
     position: relative;
     top: 0.5em; }
+    @media screen and (max-width: 800px) {
+      .stripe span:nth-child(1),
+      .stripe span:nth-last-child(1) {
+        top: 0.25em; } }
     @media screen and (max-width: 600px) {
       .stripe span:nth-child(1),
       .stripe span:nth-last-child(1) {
-        top: 0.2em; } }
+        display: none; } }
   .stripe span:nth-child(1) {
     float: left; }
   .stripe span:nth-last-child(1) {
     float: right; }
-  @media screen and (max-width: 425px) {
-    .stripe {
+
+.mobile.bar {
+  display: none;
+  background: #FFDF22;
+  padding: 0.75em 1em;
+  text-align: left;
+  height: 2.75em;
+  position: relative;
+  z-index: 2; }
+  .mobile.bar h1 {
+    font-family: "Flama Bold", Helvetica, Arial, sans-serif;
+    font-size: 0.85em;
+    margin-left: 1em;
+    display: inline-block; }
+  @media screen and (max-width: 600px) {
+    .mobile.bar {
+      display: block; } }
+  .mobile.bar .toggle {
+    float: right;
+    font-size: 1.2em;
+    position: relative;
+    top: -0.15em; }
+.mobile.sub_nav {
+  background: black;
+  color: white;
+  padding: 0.75em 1.5em;
+  width: 80%;
+  margin: 0 auto; }
+  .mobile.sub_nav ul {
+    display: none; }
+  .mobile.sub_nav li {
+    margin-top: 0.75em;
+    color: gray; }
+  .mobile.sub_nav a.currentId:after {
+    content: "▾";
+    border: 2px solid;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    width: 1.25em;
+    height: 1.25em;
+    display: block;
+    float: right;
+    text-align: center;
+    position: relative;
+    top: -0.1em;
+    right: -0.5em; }
+
+nav.mobile {
+  background: #FFDF22;
+  text-align: left;
+  padding-left: 3em;
+  padding-bottom: 0.5em;
+  position: absolute;
+  top: -100%;
+  z-index: 1;
+  width: 100%;
+  display: none; }
+  nav.mobile a {
+    display: block;
+    padding: 0.75em; }
+    nav.mobile a.sub {
+      font-family: "FlamaCn Bold", Helvetica, Arial, sans-serif; }
+  @media screen and (max-width: 600px) {
+    nav.mobile {
+      display: block; } }
+
+.socks {
+  background: #FFDF22;
+  overflow: auto;
+  padding: 2em 1em 3em;
+  font-family: "FlamaCn Bold", Helvetica, Arial, sans-serif; }
+  .socks a.logo, .socks .social {
+    width: 29%;
+    display: inline-block; }
+  .socks .nav, .socks ul {
+    width: 69%;
+    display: inline-block; }
+  .socks .nav {
+    vertical-align: bottom; }
+    .socks .nav a {
+      margin-right: 2em; }
+  .socks ul {
+    margin-top: 2em; }
+    .socks ul > li {
+      float: left;
+      width: 25%;
+      line-height: 1.3em;
+      margin-bottom: 1em; }
+  .socks a.tel {
+    font-family: "Flama Bold", Helvetica, Arial, sans-serif; }
+  .socks a.route {
+    padding-right: 0.25em; }
+  .socks .social {
+    vertical-align: top;
+    margin-top: 2em; }
+    .socks .social a {
+      margin-right: 0.5em; }
+  @media screen and (max-width: 600px) {
+    .socks {
+      padding-bottom: 1em; }
+      .socks a.logo {
+        position: absolute;
+        width: initial; }
+      .socks .nav {
+        display: none; }
+      .socks .social {
+        width: 100%;
+        text-align: right;
+        margin-top: 0.5em; }
+      .socks ul {
+        width: 100%; }
+        .socks ul > li {
+          width: 33%; } }
+      @media screen and (max-width: 600px) and (max-width: 425px) {
+        .socks ul > li {
+          width: 50%; } }
+
+.copyright {
+  padding: 1em 1em 0.75em; }
+  .copyright a.logo, .copyright .wrap > div {
+    display: inline-block;
+    vertical-align: middle; }
+  .copyright a.logo {
+    width: 29%; }
+  .copyright .disclaim {
+    font-size: 0.75em;
+    line-height: normal; }
+    @media screen and (max-width: 600px) {
+      .copyright .disclaim {
+        font-family: "FlamaCn", Helvetica, Arial, sans-serif;
+        margin-top: -0.05em; }
+        .copyright .disclaim br {
+          display: none; } }
+  .copyright .sub_nav {
+    font-family: "FlamaCn Bold", Helvetica, Arial, sans-serif;
+    margin-left: 6%; }
+    .copyright .sub_nav a {
+      margin-right: 2em; }
+  @media screen and (max-width: 600px) {
+    .copyright a.logo {
       display: none; } }
+  @media screen and (max-width: 800px) {
+    .copyright .sub_nav {
+      float: right; }
+      .copyright .sub_nav a {
+        display: none; }
+        .copyright .sub_nav a.legal {
+          display: block;
+          margin: 0; } }
 
 ::selection {
   background: #FFDF22;
@@ -186,6 +337,19 @@ header {
 ::-moz-selection {
   background: #FFDF22;
   color: white; }
+
+nav.mobile {
+  -moz-transition-property: top;
+  -o-transition-property: top;
+  -webkit-transition-property: top;
+  transition-property: top;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s; }
+
+.open_nav nav.mobile {
+  top: 2.75em; }
 
 .alignnone {
   margin: 5px 20px 20px 0; }
