@@ -296,7 +296,9 @@ nav.mobile {
           width: 33%; } }
       @media screen and (max-width: 600px) and (max-width: 425px) {
         .socks ul > li {
-          width: 50%; } }
+          width: 50%;
+          font-size: 0.9em;
+          margin-bottom: 2em; } }
 
 .copyright {
   padding: 1em 1em 0.75em; }
@@ -331,58 +333,190 @@ nav.mobile {
           display: block;
           margin: 0; } }
 
-.block.push_top {
-  margin-top: 4em; }
-  @media screen and (max-width: 800px) {
-    .block.push_top {
-      margin-top: 2em; } }
-.block.push_bot {
-  margin-bottom: 4em; }
-  @media screen and (max-width: 800px) {
-    .block.push_bot {
-      margin-bottom: 2em; } }
-.block.pad_top {
-  padding-top: 4em; }
-  @media screen and (max-width: 800px) {
-    .block.pad_top {
-      padding-top: 2em; } }
-.block.pad_bot {
-  padding-bottom: 4em; }
-  @media screen and (max-width: 800px) {
-    .block.pad_bot {
-      padding-bottom: 2em; } }
-.block.no_text > div {
-  line-height: 0; }
-.block.back_center, .block.back_cover {
-  background-repeat: no-repeat;
-  background-position: center; }
-.block.back_cover {
-  background-size: cover; }
-.block .content strong {
-  font-family: "Flama Bold", Helvetica, Arial, sans-serif; }
-  .block .content strong.condensed {
-    font-family: "FlamaCn Bold", Helvetica, Arial, sans-serif; }
-.block .content .condensed {
-  font-family: "FlamaCn", Helvetica, Arial, sans-serif; }
-  .block .content .condensed strong {
-    font-family: "FlamaCn Bold", Helvetica, Arial, sans-serif; }
-.block.promo.simple a > img {
-  display: block;
-  width: 100%; }
-.block.promo.simple .large, .block.promo.simple .mobile {
-  display: none; }
-@media screen and (max-width: 800px) {
-  .block.promo.simple .huge, .block.promo.simple .mobile {
+.block {
+  position: relative;
+  overflow: auto; }
+  .block.push_top {
+    margin-top: 4em; }
+    @media screen and (max-width: 800px) {
+      .block.push_top {
+        margin-top: 2em; } }
+  .block.push_bot {
+    margin-bottom: 4em; }
+    @media screen and (max-width: 800px) {
+      .block.push_bot {
+        margin-bottom: 2em; } }
+  .block.pad_top {
+    padding-top: 4em; }
+    @media screen and (max-width: 800px) {
+      .block.pad_top {
+        padding-top: 2em; } }
+  .block.pad_bot {
+    padding-bottom: 4em; }
+    @media screen and (max-width: 800px) {
+      .block.pad_bot {
+        padding-bottom: 2em; } }
+  .block.no_text > div {
+    line-height: 0; }
+  .block.no_text img {
+    display: block;
+    margin: 0 auto; }
+  .block.back_center, .block.back_cover {
+    background-repeat: no-repeat;
+    background-position: center; }
+  .block.back_cover {
+    background-size: cover; }
+  .block .content strong {
+    font-family: "Flama Bold", Helvetica, Arial, sans-serif; }
+    .block .content strong.condensed {
+      font-family: "FlamaCn Bold", Helvetica, Arial, sans-serif; }
+  .block .content .condensed {
+    font-family: "FlamaCn", Helvetica, Arial, sans-serif; }
+    .block .content .condensed strong {
+      font-family: "FlamaCn Bold", Helvetica, Arial, sans-serif; }
+  .block h2 {
+    text-align: center;
+    font-family: "Flama Bold", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-size: 2.5em; }
+    @media screen and (max-width: 800px) {
+      .block h2 {
+        font-size: 2em; } }
+    @media screen and (max-width: 425px) {
+      .block h2 {
+        font-size: 1.25em; } }
+  .block .wrap {
+    padding-left: 1em;
+    padding-right: 1em; }
+  .block.promo.simple a > img {
+    display: block;
+    width: 100%; }
+  .block.promo.simple .large, .block.promo.simple .mobile {
     display: none; }
-  .block.promo.simple .large {
-    display: block; } }
-@media screen and (max-width: 425px) {
-  .block.promo.simple .huge, .block.promo.simple .large {
-    display: none; }
-  .block.promo.simple .mobile {
-    display: block; } }
-.block.promo.complex .content {
-  font-size: 2em; }
+  @media screen and (max-width: 800px) {
+    .block.promo.simple .huge, .block.promo.simple .mobile {
+      display: none; }
+    .block.promo.simple .large {
+      display: block; } }
+  @media screen and (max-width: 425px) {
+    .block.promo.simple .huge, .block.promo.simple .large {
+      display: none; }
+    .block.promo.simple .mobile {
+      display: block; } }
+  .block.promo.complex .content {
+    font-size: 2em; }
+  .block .locations {
+    font-family: "FlamaCn Bold", Helvetica, Arial, sans-serif;
+    text-align: center;
+    font-size: 2em; }
+    .block .locations a {
+      text-transform: uppercase; }
+      .block .locations a.current {
+        color: #FFDF22; }
+      .block .locations a:before {
+        content: " – ";
+        color: #231F20;
+        font-family: "Flama", Helvetica, Arial, sans-serif; }
+      .block .locations a:nth-child(1):before {
+        content: ""; }
+    @media screen and (max-width: 800px) {
+      .block .locations {
+        font-size: 1.5em; } }
+    @media screen and (max-width: 425px) {
+      .block .locations {
+        font-size: 1em;
+        margin-top: 0.25em; } }
+  .block.explore .slider {
+    margin-top: 2em; }
+  .block.explore .mapa {
+    width: 70%;
+    padding-right: 2em;
+    float: left; }
+    .block.explore .mapa iframe {
+      width: 100%; }
+      @media screen and (max-width: 425px) {
+        .block.explore .mapa iframe {
+          height: 200px; } }
+    @media screen and (max-width: 800px) {
+      .block.explore .mapa {
+        padding-right: 1em; }
+        .block.explore .mapa iframe {
+          height: 300px; } }
+    @media screen and (max-width: 600px) {
+      .block.explore .mapa {
+        width: 100%;
+        padding-right: 0; } }
+  .block.explore .contact {
+    padding-top: 4em;
+    width: 30%;
+    float: left; }
+    .block.explore .contact h3 {
+      font-size: 1.25em; }
+    .block.explore .contact h3, .block.explore .contact a {
+      font-family: "Flama Bold", Helvetica, Arial, sans-serif; }
+    @media screen and (max-width: 800px) {
+      .block.explore .contact {
+        font-size: 0.75em; } }
+    @media screen and (max-width: 600px) {
+      .block.explore .contact {
+        display: none; } }
+  .block.food {
+    background-image: url(http://placehold.it/80x40/fff&text=brick);
+    border-top: 1em solid #FFDF22;
+    text-align: center; }
+    .block.food h2 {
+      margin: 1em 0; }
+    .block.food .mobile {
+      display: none; }
+    @media screen and (max-width: 425px) {
+      .block.food .large {
+        display: none; }
+      .block.food .mobile {
+        display: block; } }
+    .block.food .slider {
+      overflow: auto; }
+    .block.food .price {
+      background: #FFDF22;
+      border-radius: 50%;
+      width: 3em;
+      height: 3em;
+      display: inline-block;
+      padding-top: 0.9em;
+      top: -1.25em;
+      position: relative;
+      margin-bottom: -1em; }
+      .block.food .price:before {
+        content: "$"; }
+    .block.food a.dish {
+      font-size: 1.5em;
+      font-family: "FlamaCn Bold", Helvetica, Arial, sans-serif;
+      display: block;
+      float: left;
+      margin-right: 1em; }
+      @media screen and (max-width: 600px) {
+        .block.food a.dish img {
+          max-width: 75%; } }
+  .block.ranking h2 {
+    font-family: "FlamaCn Bold", Helvetica, Arial, sans-serif; }
+    @media screen and (max-width: 425px) {
+      .block.ranking h2 {
+        font-size: 1.75em; } }
+  .block.ranking ul {
+    text-align: center;
+    margin-top: 2em; }
+  .block.ranking li {
+    display: inline-block;
+    margin-left: 2em; }
+    .block.ranking li:nth-child(1) {
+      margin-left: 0; }
+  .block.ranking .rating {
+    margin: 0.5em 0; }
+    .block.ranking .rating span {
+      font-size: 1.4em;
+      line-height: 0;
+      color: #FFDF22; }
+      .block.ranking .rating span.half {
+        opacity: 0.5; }
 
 ::selection {
   background: #FFDF22;
@@ -395,6 +529,21 @@ nav.mobile {
 ::-moz-selection {
   background: #FFDF22;
   color: white; }
+
+a.gotomenu {
+  background: #FFDF22;
+  font-family: "Flama Bold", Helvetica, Arial, sans-serif;
+  font-size: 1.5em;
+  padding: 1em 1.5em;
+  display: inline-block;
+  margin: 2em 0; }
+  @media screen and (max-width: 425px) {
+    a.gotomenu {
+      font-size: 1.25em;
+      padding: 0.75em 1em; } }
+
+.shadow {
+  text-shadow: -0.1em 0.1em #FFDF22; }
 
 nav.mobile {
   -moz-transition-property: top;
