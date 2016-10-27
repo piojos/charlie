@@ -1,34 +1,46 @@
 <?php get_header(); ?>
 
-<div class="block promo">
-	<img src="http://placehold.it/1280x500&text=HUGE" class="huge">
-	<img src="http://placehold.it/1000x500&text=LARGE" class="large">
-	<img src="http://placehold.it/800x500&text=MOBILE" class="mobile">
-</div>
+<section id="promos">
+	<div class="block promo simple">
+		<a href="#" title="Promo title"> <!-- target="_blank" if external link -->
+			<img src="http://placehold.it/1280x500/0f0f0f/ff00ff&text=HUGE" class="huge">
+			<img src="http://placehold.it/1000x500/0f0f0f/ff00ff&text=LARGE" class="large">
+			<img src="http://placehold.it/800x500/0f0f0f/ff00ff&text=MOBILE" class="mobile">
+		</a>
+	</div>
 
 
-<div class="block promo complex pad_top pad_bot" style="background-image:url(http://placehold.it/80x40&text=tile)">
-	<img src="http://placehold.it/1280x500&text=HUGE" class="huge">
-	<img src="http://placehold.it/1000x500&text=LARGE" class="large">
-	<img src="http://placehold.it/800x500&text=MOBILE" class="mobile">
-</div>
-
-
-<div class="block promo complex push_top push_bot" style="background-color:#FFB6C1" id="explora">
-	<!-- back_cover back_center -->
-	<div class="wrap content">
-		<div style="text-align:center;">
-			<p><strong>MIÉRCOLES</strong></p>
-			<p class="condensed">PAPAS, TEPACHE Y MEZCAL</p>
-			<img src="http://placehold.it/600x600&text=MOBILE" class="mobile">
-			<p><strong>TODO EL DÍA</strong></p>
+	<div class="block promo complex push_top push_bot no_text back_cover" style="background-image:url(http://placehold.it/80x40/ff00ff/00ff00&text=tile)">
+		<!-- no_text: No text, removes the inline-style bottom margin from images -->
+		<!-- back_cover back_center -->
+		<div class="wrap content">
+			<div style="text-align:center;">
+				<img src="http://placehold.it/1000x500&text=LARGE">
+			</div>
 		</div>
 	</div>
-</div>
+
+
+	<div class="block promo complex pad_top pad_bot" style="background-color:#FFB6C1">
+		<!-- style="background-image:url(http://placehold.it/80x40&text=tile)" -->
+		<!-- back_cover back_center back_tile: style="background-image:url(tile.jpg)" -->
+		<div class="wrap content">
+			<div style="text-align:center;">
+				<p><strong>MIÉRCOLES</strong></p>
+				<p class="condensed">PAPAS, TEPACHE Y MEZCAL</p>
+				<img src="http://placehold.it/300x240&text=MOBILE">
+				<p><strong>TODO EL DÍA</strong></p>
+			</div>
+		</div>
+	</div>
+</section>
 
 
 <div class="block separator push_top push_bot">
-	<hr>
+	<!-- wrap optional -->
+	<div class="wrap">
+		<hr>
+	</div>
 </div>
 
 

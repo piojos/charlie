@@ -100,6 +100,11 @@ button {
   border: 2px solid;
   font-family: inherit; }
 
+hr {
+  border: none;
+  border-top: 2px solid;
+  margin: 0; }
+
 .wrap {
   max-width: 80em;
   margin-left: auto;
@@ -325,6 +330,59 @@ nav.mobile {
         .copyright .sub_nav a.legal {
           display: block;
           margin: 0; } }
+
+.block.push_top {
+  margin-top: 4em; }
+  @media screen and (max-width: 800px) {
+    .block.push_top {
+      margin-top: 2em; } }
+.block.push_bot {
+  margin-bottom: 4em; }
+  @media screen and (max-width: 800px) {
+    .block.push_bot {
+      margin-bottom: 2em; } }
+.block.pad_top {
+  padding-top: 4em; }
+  @media screen and (max-width: 800px) {
+    .block.pad_top {
+      padding-top: 2em; } }
+.block.pad_bot {
+  padding-bottom: 4em; }
+  @media screen and (max-width: 800px) {
+    .block.pad_bot {
+      padding-bottom: 2em; } }
+.block.no_text > div {
+  line-height: 0; }
+.block.back_center, .block.back_cover {
+  background-repeat: no-repeat;
+  background-position: center; }
+.block.back_cover {
+  background-size: cover; }
+.block .content strong {
+  font-family: "Flama Bold", Helvetica, Arial, sans-serif; }
+  .block .content strong.condensed {
+    font-family: "FlamaCn Bold", Helvetica, Arial, sans-serif; }
+.block .content .condensed {
+  font-family: "FlamaCn", Helvetica, Arial, sans-serif; }
+  .block .content .condensed strong {
+    font-family: "FlamaCn Bold", Helvetica, Arial, sans-serif; }
+.block.promo.simple a > img {
+  display: block;
+  width: 100%; }
+.block.promo.simple .large, .block.promo.simple .mobile {
+  display: none; }
+@media screen and (max-width: 800px) {
+  .block.promo.simple .huge, .block.promo.simple .mobile {
+    display: none; }
+  .block.promo.simple .large {
+    display: block; } }
+@media screen and (max-width: 425px) {
+  .block.promo.simple .huge, .block.promo.simple .large {
+    display: none; }
+  .block.promo.simple .mobile {
+    display: block; } }
+.block.promo.complex .content {
+  font-size: 2em; }
 
 ::selection {
   background: #FFDF22;
