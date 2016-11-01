@@ -201,7 +201,8 @@ header {
     float: right;
     font-size: 1.2em;
     position: relative;
-    top: -0.15em; }
+    top: -0.15em;
+    border: none; }
 .mobile.sub_nav {
   background: black;
   color: white;
@@ -468,13 +469,6 @@ nav.mobile {
       margin: 1em 0; }
     .block.food .mobile {
       display: none; }
-    @media screen and (max-width: 425px) {
-      .block.food .large {
-        display: none; }
-      .block.food .mobile {
-        display: block; } }
-    .block.food .slider {
-      overflow: auto; }
     .block.food .price {
       background: #FFDF22;
       border-radius: 50%;
@@ -496,6 +490,16 @@ nav.mobile {
       @media screen and (max-width: 600px) {
         .block.food a.dish img {
           max-width: 75%; } }
+    @media screen and (max-width: 425px) {
+      .block.food .large {
+        display: none; }
+      .block.food .mobile {
+        display: block; }
+      .block.food .price {
+        width: 2.5em;
+        height: 2.5em;
+        font-size: 0.75em;
+        padding-top: 0.75em; } }
   .block.ranking h2 {
     font-family: "FlamaCn Bold", Helvetica, Arial, sans-serif; }
     @media screen and (max-width: 425px) {
@@ -544,6 +548,32 @@ a.gotomenu {
 
 .shadow {
   text-shadow: -0.1em 0.1em #FFDF22; }
+
+.slider {
+  position: relative; }
+  .slider .draggable {
+    overflow: hidden; }
+  .slider button.slick-arrow {
+    position: absolute;
+    top: 25%;
+    background: #FFDF22;
+    color: white;
+    font-family: "Flama Bold", Helvetica, Arial, sans-serif;
+    font-size: 2em;
+    width: 1.5em;
+    height: 1.5em;
+    border: 0;
+    line-height: 0;
+    z-index: 2; }
+    .slider button.slick-arrow.slick-next {
+      right: 0.5em; }
+    .slider button.slick-arrow.slick-prev {
+      left: 0.5em; }
+    @media screen and (max-width: 800px) {
+      .slider button.slick-arrow {
+        top: 25%;
+        width: 1em;
+        height: 1em; } }
 
 nav.mobile {
   -moz-transition-property: top;
