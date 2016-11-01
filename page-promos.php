@@ -1,9 +1,4 @@
-<?php
-/*
-Template Name: Noticias
-*/
-
-get_header(); ?>
+<?php get_header(); ?>
 
 <section id="promos">
 	<div class="block promo simple">
