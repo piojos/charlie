@@ -68,8 +68,9 @@ function html5blank_nav()
  * Proper way to enqueue scripts and styles
  */
 function wpdocs_theme_name_scripts() {
-	wp_enqueue_style( 'style-name', get_stylesheet_uri() );
-	wp_enqueue_script( 'script-name', get_template_directory_uri() . '/js/scripts.js', array('jquery') );
+	wp_enqueue_style( 'Style', get_stylesheet_uri() );
+	wp_enqueue_script( 'Slick', get_template_directory_uri() . '/js/slick.min.js', array('jquery') );
+	wp_enqueue_script( 'Magic', get_template_directory_uri() . '/js/scripts.js');
 }
 add_action( 'wp_enqueue_scripts', 'wpdocs_theme_name_scripts' );
 

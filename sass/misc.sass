@@ -26,3 +26,31 @@ a.gotomenu
 
 .shadow
 	+text-shadow(-.1em .1em $yellow)
+
+
+// Sliders: food
+
+.slider
+	position: relative
+	.draggable
+		overflow: hidden
+	button.slick-arrow
+		position: absolute
+		top: 25%
+		background: $yellow
+		color: $white
+		font-family: $FlamaBold
+		font-size: 2em
+		width: 1.5em
+		height: 1.5em
+		border: 0
+		line-height: 0
+		z-index: 2
+		&.slick-next
+			right: .5em
+		&.slick-prev
+			left: .5em
+		@media screen and (max-width: 800px)
+			top: 25%
+			width: 1em
+			height: 1em

@@ -135,7 +135,9 @@
 
 
 
+
 	// food
+
 	&.food
 		background-image: url(http://placehold.it/80x40/fff&text=brick)
 		border-top: 1em solid $yellow
@@ -144,13 +146,6 @@
 			margin: 1em 0
 		.mobile
 			display: none
-		@media screen and (max-width: 425px)
-			.large
-				display: none
-			.mobile
-				display: block
-		.slider
-			overflow: auto
 		.price
 			background: $yellow
 			border-radius: 50%
@@ -172,6 +167,16 @@
 			@media screen and (max-width: 600px)
 				img
 					max-width: 75%
+		@media screen and (max-width: 425px)
+			.large
+				display: none
+			.mobile
+				display: block
+			.price
+				width: 2.5em
+				height: 2.5em
+				font-size: .75em
+				padding-top: .75em
 
 
 
