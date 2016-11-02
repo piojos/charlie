@@ -20,7 +20,7 @@
 			slidesToShow: 4,
 			slidesToScroll: 4,
 			centerMode: true,
-			centerPadding: '0',
+			centerPadding: '10px',
 			responsive: [
 				{
 				breakpoint: 1000,
@@ -43,9 +43,6 @@
 					slidesToScroll: 1
 					}
 				}
-			// You can unslick at a given breakpoint now by adding:
-			// settings: "unslick"
-			// instead of a settings object
 			]
 		});
 

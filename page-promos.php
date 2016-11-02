@@ -76,38 +76,7 @@
 	<img src="http://placehold.it/1280x500&text=EL%20MENU" class="large">
 	<img src="http://placehold.it/600x300&text=MOBILE%20MENU" class="mobile">
 	<h2>Chido para ahorita</h2>
-	<div class="slider wrap">
-		<a class="slide dish">
-			<img src="http://placehold.it/380x300&text=SANDWICH"><br>
-			<span class="price">95</span>
-			<h3>Club Sandwich</h3>
-		</a>
-		<a class="slide dish">
-			<img src="http://placehold.it/380x300&text=PIZZA"><br>
-			<span class="price">125</span>
-			<h3>Don Mario Pizza</h3>
-		</a>
-		<a class="slide dish">
-			<img src="http://placehold.it/380x300&text=BURGER"><br>
-			<span class="price">100</span>
-			<h3>Toreados Burger</h3>
-		</a>
-		<a class="slide dish">
-			<img src="http://placehold.it/380x300&text=SANDWICH"><br>
-			<span class="price">95</span>
-			<h3>Club Sandwich</h3>
-		</a>
-		<a class="slide dish">
-			<img src="http://placehold.it/380x300&text=PIZZA"><br>
-			<span class="price">125</span>
-			<h3>Don Mario Pizza</h3>
-		</a>
-		<a class="slide dish">
-			<img src="http://placehold.it/380x300&text=BURGER"><br>
-			<span class="price">100</span>
-			<h3>Toreados Burger</h3>
-		</a>
-	</div>
+	<?php get_template_part('inc/slider', 'food'); ?>
 	<a href="#" class="gotomenu">CHECA <u>TODO</u> EL MENU</a>
 </div>
 
