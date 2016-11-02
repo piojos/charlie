@@ -134,6 +134,8 @@ header {
           width: 4em; } }
       header .dt_nav > a.logo {
         width: initial; }
+      header .dt_nav > a.current span {
+        border-bottom: 2px solid #FFDF22; }
     @media screen and (max-width: 600px) {
       header .dt_nav {
         display: none; } }
@@ -208,8 +210,10 @@ header {
   color: white;
   padding: 0.75em 1.5em;
   width: 80%;
-  margin: 0 auto; }
-  .mobile.sub_nav ul {
+  margin: 0 auto;
+  position: relative;
+  text-transform: uppercase; }
+  .mobile.sub_nav > :not(.currentId) {
     display: none; }
   .mobile.sub_nav li {
     margin-top: 0.75em;
@@ -228,6 +232,47 @@ header {
     position: relative;
     top: -0.1em;
     right: -0.5em; }
+  .mobile.sub_nav button {
+    border-color: white;
+    opacity: 0.5;
+    display: inline-block;
+    margin-top: 0.25em;
+    line-height: 0; }
+  .mobile.sub_nav .instructions {
+    font-size: 0.75em; }
+
+.sub_nav.menu_filter ul {
+  font-family: "Flama Bold", Helvetica, Arial, sans-serif; }
+.sub_nav.menu_filter li.current {
+  font-family: "FlamaCn", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1.5em;
+  color: #FFDF22; }
+@media screen and (min-width: 800px) {
+  .sub_nav.menu_filter {
+    float: left;
+    width: 14em;
+    padding: 1.5em; }
+    .sub_nav.menu_filter .currentId {
+      display: none; }
+    .sub_nav.menu_filter > :not(.currentId) {
+      display: block; } }
+.sub_nav.menu_filter .call {
+  background: #FFDF22;
+  color: black;
+  float: left;
+  width: 14em;
+  position: absolute;
+  bottom: -5em;
+  left: 0;
+  padding: 1em;
+  font-family: "FlamaCn", Helvetica, Arial, sans-serif;
+  text-align: center;
+  letter-spacing: 0.1em; }
+  .sub_nav.menu_filter .call strong {
+    font-family: "Flama Bold", Helvetica, Arial, sans-serif;
+    font-size: 1.5em;
+    letter-spacing: 0; }
 
 nav.mobile {
   background: #FFDF22;
@@ -486,7 +531,8 @@ nav.mobile {
       font-family: "FlamaCn Bold", Helvetica, Arial, sans-serif;
       display: block;
       float: left;
-      margin-right: 1em; }
+      margin-right: 0.5em;
+      margin-left: 0.5em; }
       @media screen and (max-width: 600px) {
         .block.food a.dish img {
           max-width: 75%; } }
@@ -500,6 +546,37 @@ nav.mobile {
         height: 2.5em;
         font-size: 0.75em;
         padding-top: 0.75em; } }
+    .block.food .notes {
+      background: #FFDF22;
+      margin-bottom: 1em;
+      text-align: left;
+      padding: 1em;
+      margin: 1em;
+      margin-left: 2em;
+      max-width: 50em; }
+    .block.food .opts {
+      background: no-repeat center;
+      width: 2em;
+      height: 1em;
+      display: inline-block;
+      position: relative;
+      top: -1em;
+      opacity: 0.15; }
+      .block.food .opts.yes {
+        opacity: 1; }
+      .block.food .opts.delivery {
+        background-image: url(http://placehold.it/30x30/F00&text=MOTO); }
+      .block.food .opts.foodtruck {
+        background-image: url(http://placehold.it/40x30/F00&text=TRUCK); }
+    .block.food.template {
+      background: none;
+      border-top: none; }
+      .block.food.template section {
+        margin-bottom: 8em; }
+      .block.food.template h2 {
+        font-family: "FlamaCn Bold", Helvetica, Arial, sans-serif;
+        text-align: left;
+        margin-left: 1em; }
   .block.ranking h2 {
     font-family: "FlamaCn Bold", Helvetica, Arial, sans-serif; }
     @media screen and (max-width: 425px) {
@@ -546,7 +623,7 @@ a.gotomenu {
       font-size: 1.25em;
       padding: 0.75em 1em; } }
 
-.shadow {
+.shadow, .block.food.template h2 {
   text-shadow: -0.1em 0.1em #FFDF22; }
 
 .slider {
