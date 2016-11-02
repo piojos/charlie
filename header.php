@@ -28,7 +28,7 @@
 	<header class="header clear" role="banner">
 		<div class="dt_nav wrap">
 			<a href="<?php echo home_url(); ?>">Promos</a>
-			<a href="<?php echo home_url(); ?>">Menú</a>
+			<a href="<?php echo home_url(); ?>" class="current"><span>Menú<span></a>
 			<a href="<?php echo home_url(); ?>" class="logo">
 				<img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="Logo" class="random hide">
 				<img src="<?php echo get_template_directory_uri(); ?>/img/logo-circle-black.svg" alt="Logo" class="real">
@@ -52,15 +52,6 @@
 			<a href="<?php echo home_url(); ?>" class="sub">Contacto</a>
 		</nav>
 	</header>
-	<div class="mobile sub_nav hide">
-		<a href="#" class="currentId">Promos</a>
-		<ul>
-			<li><a href="#">Something Else</a></li>
-			<li><a href="#">Something Else</a></li>
-			<li><a href="#">Something Else</a></li>
-			<li><a href="#">Something Else</a></li>
-		</ul>
-	</div>
 
 	<div class="stripe">
 		<div class="wrap">

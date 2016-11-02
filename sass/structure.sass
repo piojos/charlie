@@ -31,6 +31,8 @@ header
 				width: 4em
 			&.logo
 				width: initial
+			&.current span
+				border-bottom: 2px solid $yellow
 		@media screen and (max-width: 600px)
 			display: none
 	img
@@ -106,7 +108,9 @@ header
 		padding: .75em 1.5em
 		width: 80%
 		margin: 0 auto
-		ul
+		position: relative
+		text-transform: uppercase
+		& > :not(.currentId)
 			display: none
 		li
 			margin-top: .75em
@@ -123,9 +127,48 @@ header
 			position: relative
 			top: -.1em
 			right: -.5em
+		button
+			border-color: white
+			opacity: .5
+			display: inline-block
+			margin-top: .25em
+			line-height: 0
+		.instructions
+			font-size: .75em
 
 
-
+.sub_nav.menu_filter
+	ul
+		font-family: $FlamaBold
+	li.current
+		font-family: $FlamaCn
+		font-weight: bold
+		font-size: 1.5em
+		color: $yellow
+	@media screen and (min-width: 800px)
+		float: left
+		width: 14em
+		padding: 1.5em
+		.currentId
+			display: none
+		& > :not(.currentId)
+			display: block
+	.call
+		background: $yellow
+		color: black
+		float: left
+		width: 14em
+		position: absolute
+		bottom: -5em
+		left: 0
+		padding: 1em
+		font-family: $FlamaCn
+		text-align: center
+		letter-spacing: .1em
+		strong
+			font-family: $FlamaBold
+			font-size: 1.5em
+			letter-spacing: 0
 
 // nav
 
