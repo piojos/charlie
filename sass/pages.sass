@@ -1,0 +1,48 @@
+// Sucursales
+.location.tabs
+	text-align: center
+	letter-spacing: -1em
+	line-height: 0
+	overflow: hidden
+
+.location.content
+	background: $yellow
+	padding: 4em 0
+	.info, .faq
+		width: 40%
+		margin: 2.5%
+		float: left
+	.faq
+		margin-top: 6em
+		font-size: .9em
+	h2
+		font-family: $FlamaBold
+		font-size: 2em
+		text-shadow: -0.1em 0.1em #FFF
+		margin-bottom: .5em
+	iframe
+		clear: both
+		width: 100%
+		pointer-events: none
+		position: relative
+		&.clicked
+			pointer-events: auto
+	ul.joints
+		overflow: auto
+		margin: 2em auto
+		padding: 0 1em
+		li
+			width: 10em
+			min-height: 10em
+			float: left
+			margin-right: 1em
+			&:nth-last-child(1)
+				margin-right: 0
+		p
+			margin: 1em 0
+			font-size: .75em
+		a.button
+			font-size: .75em
+			font-family: $FlamaCn
+	h3, a.tel
+		font-family: $FlamaBold
