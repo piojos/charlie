@@ -55,13 +55,25 @@ a
 .hide
 	display: none
 
-button
+button, a.button
 	+appearance(none)
 	background: none
 	border: 2px solid
 	font-family: inherit
+	text-transform: uppercase
+	padding: .25em .5em
+	display: inline-block
 
 hr
 	border: none
 	border-top: 2px solid
 	margin: 0
+
+input, textarea
+	font: inherit
+	width: 100%
+	display: inline-block
+	border: none
+
+textarea
+	max-width: 100%
