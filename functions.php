@@ -134,8 +134,10 @@ function html5wp_excerpt($length_callback = '', $more_callback = '')
 //     return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('View Article', 'html5blank') . '</a>';
 // }
 
-
-
+function my_acf_init() {
+	acf_update_setting('google_api_key', 'AIzaSyCG3l_pG-5BMKnGDpYenf_eUgVSy0wtPes');
+}
+add_action('acf/init', 'my_acf_init');
 
 /*------------------------------------*\
 	Custom Post Types
