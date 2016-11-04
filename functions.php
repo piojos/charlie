@@ -127,74 +127,111 @@ function html5wp_excerpt($length_callback = '', $more_callback = '')
     echo $output;
 }
 
-// // Custom View Article link to Post
-// function html5_blank_view_article($more)
-// {
-//     global $post;
-//     return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('View Article', 'html5blank') . '</a>';
-// }
+
 
 function my_acf_init() {
 	acf_update_setting('google_api_key', 'AIzaSyCG3l_pG-5BMKnGDpYenf_eUgVSy0wtPes');
 }
 add_action('acf/init', 'my_acf_init');
 
+
+
+if( function_exists('acf_add_options_page') ) {
+	acf_add_options_page(array(
+		'page_title' 	=> 'Opciones Generales',
+		'menu_title'	=> 'Opciones',
+		'menu_slug' 	=> 'general-settings',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Opciones de Cabecera',
+		'menu_title'	=> 'Cabecera',
+		'parent_slug'	=> 'general-settings',
+	));
+}
+
+
+
+
 /*------------------------------------*\
 	Custom Post Types
 \*------------------------------------*/
 
-// Create 1 Custom Post type for a Demo, called HTML5-Blank
-// function create_post_type_html5()
-// {
-//     register_taxonomy_for_object_type('category', 'html5-blank'); // Register Taxonomies for Category
-//     register_taxonomy_for_object_type('post_tag', 'html5-blank');
-//     register_post_type('html5-blank', // Register Custom Post Type
-//         array(
-//         'labels' => array(
-//             'name' => __('HTML5 Blank Custom Post', 'html5blank'), // Rename these to suit
-//             'singular_name' => __('HTML5 Blank Custom Post', 'html5blank'),
-//             'add_new' => __('Add New', 'html5blank'),
-//             'add_new_item' => __('Add New HTML5 Blank Custom Post', 'html5blank'),
-//             'edit' => __('Edit', 'html5blank'),
-//             'edit_item' => __('Edit HTML5 Blank Custom Post', 'html5blank'),
-//             'new_item' => __('New HTML5 Blank Custom Post', 'html5blank'),
-//             'view' => __('View HTML5 Blank Custom Post', 'html5blank'),
-//             'view_item' => __('View HTML5 Blank Custom Post', 'html5blank'),
-//             'search_items' => __('Search HTML5 Blank Custom Post', 'html5blank'),
-//             'not_found' => __('No HTML5 Blank Custom Posts found', 'html5blank'),
-//             'not_found_in_trash' => __('No HTML5 Blank Custom Posts found in Trash', 'html5blank')
-//         ),
-//         'public' => true,
-//         'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
-//         'has_archive' => true,
-//         'supports' => array(
-//             'title',
-//             'editor',
-//             'excerpt',
-//             'thumbnail'
-//         ), // Go to Dashboard Custom HTML5 Blank post for supports
-//         'can_export' => true, // Allows export in Tools > Export
-//         'taxonomies' => array(
-//             'post_tag',
-//             'category'
-//         ) // Add Category and Post Tags support
-//     ));
-// }
+function create_pt_food() {
+	register_taxonomy_for_object_type('category', 'charlie');
+	register_post_type('food',
+		array(
+		'labels' => array(
+			'name' => __('Platillos', 'charlie'), // Rename these to suit
+			'singular_name' => __('Platillo', 'charlie'),
+			'add_new' => __('Nuevo', 'charlie'),
+			'add_new_item' => __('Agregar nuevo platillo', 'charlie'),
+			'edit' => __('Editar', 'charlie'),
+			'edit_item' => __('Editar platillo', 'charlie'),
+			'new_item' => __('Nuevo platillo', 'charlie'),
+			'view' => __('Ver platillo', 'charlie'),
+			'view_item' => __('Ver platillo', 'charlie'),
+			'search_items' => __('Buscar platillo', 'charlie'),
+			'not_found' => __('No se encontró ningún platillo', 'charlie'),
+			'not_found_in_trash' => __('No se encontró ningún platillo en la basura', 'charlie')
+		),
+		'public' => true,
+		'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
+		'has_archive' => true,
+		'supports' => array(
+			'title',
+			'editor',
+			'excerpt',
+			'thumbnail'
+		), // Go to Dashboard Custom HTML5 Blank post for supports
+		'can_export' => true, // Allows export in Tools > Export
+		'taxonomies' => array(
+			'category'
+		) // Add Category and Post Tags support
+	));
+}
+add_action( 'init', 'create_pt_food' );
 
-/*------------------------------------*\
-	ShortCode Functions
-\*------------------------------------*/
+function create_pt_promos() {
+	register_post_type('promos',
+		array(
+		'labels' => array(
+			'name' => __('Promociones', 'charlie'), // Rename these to suit
+			'singular_name' => __('Promoción', 'charlie'),
+			'add_new' => __('Nueva', 'charlie'),
+			'add_new_item' => __('Agregar nueva promoción', 'charlie'),
+			'edit' => __('Editar', 'charlie'),
+			'edit_item' => __('Editar promoción', 'charlie'),
+			'new_item' => __('Nueva promoción', 'charlie'),
+			'view' => __('Ver promoción', 'charlie'),
+			'view_item' => __('Ver promoción', 'charlie'),
+			'search_items' => __('Buscar promoción', 'charlie'),
+			'not_found' => __('No se encontró ninguna promoción', 'charlie'),
+			'not_found_in_trash' => __('No se encontró ninguna promoción en la basura', 'charlie')
+		),
+		'public' => true,
+		'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
+		'has_archive' => true,
+		'supports' => array(
+			'title',
+			'editor',
+			'excerpt',
+			'thumbnail'
+		), // Go to Dashboard Custom HTML5 Blank post for supports
+		'can_export' => true // Allows export in Tools > Export
+	));
+}
+add_action( 'init', 'create_pt_promos' );
 
-// Shortcode Demo with Nested Capability
-// function html5_shortcode_demo($atts, $content = null)
-// {
-//     return '<div class="shortcode-demo">' . do_shortcode($content) . '</div>'; // do_shortcode allows for nested Shortcodes
-// }
-//
-// // Shortcode Demo with simple <h2> tag
-// function html5_shortcode_demo_2($atts, $content = null) // Demo Heading H2 shortcode, allows for nesting within above element. Fully expandable.
-// {
-//     return '<h2>' . $content . '</h2>';
-// }
+
+
+/* Allow .SVG */
+function cc_mime_types($mimes) {
+	$mimes['svg'] = 'image/svg+xml';
+	return $mimes;
+}
+add_filter('upload_mimes', 'cc_mime_types');
+
 
 ?>

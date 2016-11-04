@@ -22,35 +22,78 @@
         });
         </script> -->
 
-	</head>
+	</head><?php
+
+	$currentID = get_the_ID();
+	$dtml = get_field('dtmenu_left', 'options');
+	$dtmr = get_field('dtmenu_right', 'options');
+	$mainLogo = get_field('logo_main', 'options');
+	$animatedLogo = get_field('logo_anim', 'options');
+
+	function dtmenu_elements($rep, $cID) {
+		foreach($rep as $post_object):
+			$isCurrent = '';
+			if($post_object->ID == $cID) $isCurrent = ' class="current"';
+			$elements .= '<a href="'. get_permalink($post_object->ID) .'"'.$isCurrent.'><span>'. get_the_title($post_object->ID) .'</span></a>';
+		endforeach;
+		return $elements;
+	}
+
+	?>
 	<body <?php body_class(); ?>>
 
 	<header class="header clear" role="banner">
-		<div class="dt_nav wrap">
-			<a href="<?php echo home_url(); ?>">Promos</a>
-			<a href="<?php echo home_url(); ?>" class="current"><span>Menú<span></a>
-			<a href="<?php echo home_url(); ?>" class="logo">
-				<img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="Logo" class="random hide">
-				<img src="<?php echo get_template_directory_uri(); ?>/img/logo-circle-black.svg" alt="Logo" class="real">
-			</a>
-			<a href="<?php echo home_url(); ?>">Sucursales</a>
-			<a href="<?php echo home_url(); ?>">Mr. Brown?</a>
+		<div class="dt_nav wrap"><?php
+
+			echo dtmenu_elements($dtml, $currentID);
+			?>
+			<a href="<?php echo home_url(); ?>" class="logo"><?php
+				if( !empty($animatedLogo) ): ?>
+					<img src="<?php echo $animatedLogo['url']; ?>" alt="<?php echo $animatedLogo['alt']; ?>" class="random hide" /><?php
+				endif;
+				if( !empty($mainLogo) ): ?>
+					<img src="<?php echo $mainLogo['url']; ?>" alt="<?php echo $mainLogo['alt']; ?>" class="real" /><?php
+				endif; ?>
+			</a><?php
+
+			echo dtmenu_elements($dtmr, $currentID); ?>
+
 		</div>
-		<div class="mobile bar">
+		<div class="mobile bar"><?php
+
+		if( !empty($mainLogo) ): ?>
 			<a href="<?php echo home_url(); ?>" class="mobile_logo">
-				<img src="<?php echo get_template_directory_uri(); ?>/img/logo-circle-black.svg" alt="Logo" width="24">
-			</a>
+				<img src="<?php echo $mainLogo['url']; ?>" alt="<?php echo $mainLogo['alt']; ?>" width="24" />
+			</a><?php
+		endif; ?>
 			<h1 class="breadcrumbs">Inicio / Promos</h1>
 			<button class="toggle"><span>🍔</span><span class="hide">❌</span></button>
-		</div>
-		<nav class="nav mobile" role="navigation">
-			<a href="<?php echo home_url(); ?>">Promos</a>
-			<a href="<?php echo home_url(); ?>">Menú</a>
-			<a href="<?php echo home_url(); ?>">Sucursales</a>
-			<a href="<?php echo home_url(); ?>">Mr. Brown?</a>
-			<a href="<?php echo home_url(); ?>" class="sub">Únete al Team</a>
-			<a href="<?php echo home_url(); ?>" class="sub">Contacto</a>
-		</nav>
+		</div><?php
+
+		if( have_rows('mb_menu', 'options') ): ?>
+		<nav class="nav mobile" role="navigation"><?php
+			while ( have_rows('mb_menu', 'options') ) : the_row();
+				$options = get_sub_field('options');
+				$isSub = '';
+
+				if(in_array('url', $options)) { ?>
+			<a href="<?php the_sub_field('ext_url'); ?>"<?php if(in_array('sub', $options)) echo ' class="sub"';?>><?php the_sub_field('name'); ?></a><?php
+
+				} else {
+
+					$post_object = get_sub_field('page-item');
+					if(in_array('sub', $options)) $isSub = ' class="sub"';
+					if( $post_object ):
+						$post = $post_object;
+						setup_postdata( $post ); ?>
+			<a href="<?php the_permalink(); ?>"<?php echo $isSub; ?>><?php the_title(); ?></a><?php
+
+					wp_reset_postdata();
+				endif;
+				}
+			endwhile; ?>
+		</nav><?php
+		endif; ?>
 	</header>
 
 	<div class="stripe">
