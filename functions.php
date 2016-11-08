@@ -234,4 +234,18 @@ function cc_mime_types($mimes) {
 add_filter('upload_mimes', 'cc_mime_types');
 
 
-?>
+
+
+
+
+function blockClass($op) {
+	if( get_row_layout() == 'promo' ) {
+		if(in_array('content', $op)) { $classes .= ' complex'; } else {$classes .= ' simple no_text'; }
+	}
+	if(in_array('push_top', $op)) $classes .= ' push_top';
+	if(in_array('push_bot', $op)) $classes .= ' push_bot';
+	if(in_array('pad_top', $op)) $classes .= ' pad_top';
+	if(in_array('pad_bot', $op)) $classes .= ' pad_bot';
+
+	return $classes;
+}
