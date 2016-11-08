@@ -4,10 +4,10 @@
 	<!-- video -->
 </div>
 
-<div class="block pad_top pad_bot" style="background:#FFDF22">
+<div class="block about pad_top pad_bot" style="background:#FFDF22">
 	<div class="wrap content wrap tight">
 		<img src="http://placehold.it/250x320" class="alignleft">
-		<p>Soy un experimentado conocedor de la vida y el mundo, a lo largo de mi trayectoria he conocido y probado los mejores platillos del mundo, tengo el deseo de complacer los paladares de todas las personas con estilo.</p>
+		<p>Soy un experimentado conocedor de la vida y el mundo, a lo largo de mi trayectoria he conocido y probado los mejores platillos del mundo, tengo el deseo de complacer los paladares de <strong>todas las personas con estilo</strong>.</p>
 	</div>
 </div>
 

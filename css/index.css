@@ -453,21 +453,23 @@ nav.mobile {
     .block .titling a {
       font-family: "FlamaCn", Helvetica, Arial, sans-serif;
       font-size: 1.25em; }
-  .block.promo.simple a > img {
-    display: block;
-    width: 100%; }
-  .block.promo.simple .large, .block.promo.simple .mobile {
-    display: none; }
-  @media screen and (max-width: 800px) {
-    .block.promo.simple .huge, .block.promo.simple .mobile {
+  .block.promo.simple {
+    background-position: center; }
+    .block.promo.simple a > img {
+      display: block;
+      width: 100%; }
+    .block.promo.simple .large, .block.promo.simple .mobile {
       display: none; }
-    .block.promo.simple .large {
-      display: block; } }
-  @media screen and (max-width: 425px) {
-    .block.promo.simple .huge, .block.promo.simple .large {
-      display: none; }
-    .block.promo.simple .mobile {
-      display: block; } }
+    @media screen and (max-width: 800px) {
+      .block.promo.simple .huge, .block.promo.simple .mobile {
+        display: none; }
+      .block.promo.simple .large {
+        display: block; } }
+    @media screen and (max-width: 425px) {
+      .block.promo.simple .huge, .block.promo.simple .large, .block.promo.simple .both {
+        display: none; }
+      .block.promo.simple .mobile {
+        display: block; } }
   .block.promo.complex .content {
     font-size: 2em; }
   .block .locations {

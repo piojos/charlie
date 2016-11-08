@@ -19,7 +19,7 @@
 			speed: 300,
 			slidesToShow: 4,
 			slidesToScroll: 4,
-			centerMode: true,
+			// centerMode: true,
 			centerPadding: '10px',
 			responsive: [
 				{
