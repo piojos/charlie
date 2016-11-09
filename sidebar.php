@@ -1,24 +1,45 @@
+<?php
+
+	// Page: Menu
+	if (get_the_ID() == 4) :
+
+		$dishTypes = get_field('dish_types'); ?>
+
 <div class="mobile sub_nav menu_filter">
 	<a href="#" class="currentId">Burgers</a>
 	<div class="instructions">
 		Mostrar solo: <br>
 		<button class="delivery"><img src="http://placehold.it/40x26&text=MOTO"></button>
 		<button class="foodtruck"><img src="http://placehold.it/50x26&text=TRUCK"></button>
-	</div>
-	<ul>
-		<li class="entradas current"><a href="#">Entradas</a></li>
-		<li class="ensaladas"><a href="#">Ensaladas</a></li>
-		<li class="burritos"><a href="#">Burritos</a></li>
-		<li class="pizzas"><a href="#">Pizzas</a></li>
-		<li class="baguettes"><a href="#">Baguettes</a></li>
-	</ul>
-	<div class="call">
-		¿QUÉ TE LLEVAMOS, BRO?<br>
-		<strong>81 2141 1097</strong>
-	</div>
-</div>
+	</div><?php
+	if( $dishTypes ): ?>
+	<ul><?php
+		foreach( $dishTypes as $term ): ?>
+			<li class="<?php echo $term->slug; ?>"><a href="#<?php echo $term->slug; ?>"><?php echo $term->name; ?></a></li>
+		<?php endforeach; ?>
+	</ul><?php
+	endif;
 
-<?php /*
+
+
+	if(have_rows('delivery_contact', 'options')) : ?>
+	<div class="call"><?php
+		while (have_rows('delivery_contact', 'options')) :
+			the_row();
+			$tel = get_sub_field('tel'); ?>
+			<?php the_sub_field('title'); ?><br>
+			<strong><a href="tel:<?php echo $tel; ?>"><?php echo $tel; ?></a></strong><?php 
+		endwhile; ?>
+	</div><?php
+	endif; ?>
+
+</div><?php
+
+
+	// Any other
+	else :
+
+/*
 <div class="mobile sub_nav">
 	<a href="#" class="currentId">Promos</a>
 	<ul>
@@ -28,4 +49,5 @@
 		<li><a href="#">Something Else</a></li>
 	</ul>
 </div>
-*/ ?>
+*/
+	endif;?>
