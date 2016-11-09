@@ -26,7 +26,7 @@
 
 	$currentID = get_the_ID();
 	$dtml = get_field('dtmenu_left', 'options');
-	$dtmr = get_field('dtmenu_right', 'options');
+	$dtmr = get_field('dtmenu_right', 'option');
 	$mainLogo = get_field('logo_main', 'options');
 	$animatedLogo = get_field('logo_anim', 'options');
 
@@ -45,6 +45,7 @@
 	<header class="header clear" role="banner">
 		<div class="dt_nav wrap"><?php
 
+			// print_r($dtml);
 			echo dtmenu_elements($dtml, $currentID);
 			?>
 			<a href="<?php echo home_url(); ?>" class="logo"><?php
@@ -56,6 +57,7 @@
 				endif; ?>
 			</a><?php
 
+			// print_r($dtmr);
 			echo dtmenu_elements($dtmr, $currentID); ?>
 
 		</div>
