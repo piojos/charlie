@@ -312,6 +312,8 @@ nav.mobile {
   overflow: auto;
   padding: 2em 1em 3em;
   font-family: "FlamaCn Bold", Helvetica, Arial, sans-serif; }
+  .socks a.logo img {
+    max-height: 2em; }
   .socks a.logo, .socks .social {
     width: 29%;
     display: inline-block; }
@@ -319,7 +321,8 @@ nav.mobile {
     width: 69%;
     display: inline-block; }
   .socks .nav {
-    vertical-align: bottom; }
+    vertical-align: bottom;
+    text-transform: uppercase; }
     .socks .nav a {
       margin-right: 2em; }
   .socks ul {
@@ -337,7 +340,9 @@ nav.mobile {
     vertical-align: top;
     margin-top: 2em; }
     .socks .social a {
-      margin-right: 0.5em; }
+      margin-right: 1em; }
+    .socks .social img {
+      max-height: 1.25em; }
   @media screen and (max-width: 600px) {
     .socks {
       padding-bottom: 1em; }

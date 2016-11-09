@@ -1,67 +1,106 @@
+<?php
+
+	wp_footer();
+	$yeLogo = get_field('ft_logo_main', 'option');
+	$yeMenu = get_field('ft_menu_main', 'option'); // Post Objects
+	$whLogo = get_field('ft_logo_low', 'option');
+
+	?>
 		<footer class="footer" role="contentinfo">
 
 			<div class="socks">
 				<div class="wrap">
-					<a class="logo">
-						<img src="http://www.placehold.it/156x36" class="desktop">
-						<!-- <img src="" class="mobile"> -->
-					</a>
-					<div class="nav">
-						<a href="#">PROMOS</a>
-						<a href="#">MENÚ</a>
-						<a href="#">SUCURSALES</a>
-						<a href="#">MR. BROWN?</a>
-					</div>
-					<div class="social">
-						<a href="#"><img src="http://www.placehold.it/26x26"></a>
-						<a href="#"><img src="http://www.placehold.it/26x26"></a>
-						<a href="#"><img src="http://www.placehold.it/26x26"></a>
-					</div>
-					<ul>
+					<a class="logo"><?php
+
+
+					// Logo
+					if($yeLogo) {
+						echo '<img src="'. $yeLogo['url'] .'" alt="'. $yeLogo['description'] .'" class="desktop">';
+					} ?>
+					</a><?php
+
+
+					// Menu
+					if( $yeMenu ): ?>
+					<div class="nav"><?php
+						foreach( $yeMenu as $post_object):
+						$title = get_the_title($post_object->ID); ?>
+						<a href="<?php echo get_permalink($post_object->ID); ?>" title="<?php echo $title; ?>"><?php echo $title; ?></a><?php
+						endforeach; ?>
+					</div><?php
+					endif;
+
+
+					// Social
+					if(have_rows('ft_redes', 'option')) : ?>
+					<div class="social"><?php
+						while (have_rows('ft_redes', 'option')) :
+						the_row();
+						$smName = get_sub_field('name');
+						$smIcon = get_sub_field('icon');
+						?>
+						<a href="<?php the_sub_field('url'); ?>" title="<?php echo $smName; ?>"><?php
+							if($smIcon) {
+								echo '<img src="'. $smIcon['url'] .'" alt="'. $smIcon['description'] .'">';
+							}
+						?></a><?php
+						endwhile; ?>
+					</div><?php
+					endif;
+
+
+					// Sucursales
+					if(have_rows('ft_sucursales', 'option')) : ?>
+					<ul><?php
+						while (have_rows('ft_sucursales', 'option')) :
+						the_row(); ?>
 						<li>
-							<h3>SAN JERÓNIMO</h3>
-							<a href="tel:81 8143 9291" class="tel">81 8143 9291</a><br>
-							<a href="#" class="route">📍 ¿CÓMO LLEGAR?</a>
-						</li>
-						<li>
-							<h3>SAN NICOLÁS</h3>
-							<a href="tel:81 8143 9291" class="tel">81 8143 9291</a><br>
-							<a href="#" class="route">📍 ¿CÓMO LLEGAR?</a>
-						</li>
-						<li>
-							<h3>GARZA SADA</h3>
-							<a href="tel:81 8143 9291" class="tel">81 8143 9291</a><br>
-							<a href="#" class="route">📍 ¿CÓMO LLEGAR?</a>
-						</li>
-						<li>
-							<h3>CONDESA</h3>
-							<a href="tel:81 8143 9291" class="tel">81 8143 9291</a><br>
-							<a href="#" class="route">📍 ¿CÓMO LLEGAR?</a>
-						</li>
-					</ul>
+							<?php the_sub_field('info'); ?>
+						</li><?php
+						endwhile; ?>
+					</ul><?php
+					endif;
+
+
+					?>
 				</div>
 			</div>
 
 			<div class="copyright">
-				<div class="wrap">
-					<a href="#" class="logo"><img src="http://www.placehold.it/36x36"></a>
+				<div class="wrap"><?php
+
+
+					// End logo
+					if($whLogo) { ?>
+					<a href="<?php echo home_url(); ?>" class="logo">
+						<img src="<?php echo $whLogo['url']; ?>" alt="<?php echo $whLogo['description']; ?>" class="desktop">
+					</a><?php
+					} ?>
+
 					<div class="disclaim">
 						Todos los derechos reservados.<br>
 						<?php bloginfo('name'); ?> &copy; <?php echo date('Y'); ?>. <a href="//raidho.mx" target="_blank">Raidho</a>.
-					</div>
-					<div class="sub_nav">
-						<a href="#">ÚNETE AL TEAM</a>
-						<a href="#">CONTACTO</a>
-						<a href="#" class="legal">LEGAL</a>
-					</div>
+					</div><?php
+
+
+					// Sub navigation
+					if(have_rows('ft_links', 'option')) : ?>
+					<div class="sub_nav"><?php
+						while (have_rows('ft_links', 'option')) :
+						the_row();
+						$smName = get_sub_field('name');
+						$showMobile = get_sub_field('options'); ?>
+						<a href="<?php the_sub_field('url'); ?>" title="<?php echo $smName; ?>"<?php
+							if($showMobile) echo ' class="legal"'; ?>><?php echo $smName; ?></a><?php
+						endwhile; ?>
+					</div><?php
+					endif; ?>
 				</div>
 			</div>
 
 		</footer>
 
-		<?php wp_footer(); ?>
-
-		<!-- analytics -->
+		<!-- analytics
 		<script>
 		(function(f,i,r,e,s,h,l){i['GoogleAnalyticsObject']=s;f[s]=f[s]||function(){
 		(f[s].q=f[s].q||[]).push(arguments)},f[s].l=1*new Date();h=i.createElement(r),
@@ -70,6 +109,7 @@
 		ga('create', 'UA-XXXXXXXX-XX', 'yourdomain.com');
 		ga('send', 'pageview');
 		</script>
+ 		-->
 
 	</body>
 </html>
