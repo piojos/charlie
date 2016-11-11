@@ -69,6 +69,7 @@ function html5blank_nav()
  */
 function wpdocs_theme_name_scripts() {
 	wp_enqueue_style( 'Style', get_stylesheet_uri() );
+	wp_enqueue_style( 'Hint', get_template_directory_uri() . '/css/hint.min.css');
 	wp_enqueue_script( 'Slick', get_template_directory_uri() . '/js/slick.min.js', array('jquery') );
 	wp_enqueue_script( 'Magic', get_template_directory_uri() . '/js/scripts.js');
 }
