@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div class="block">
+<div class="mapping">
 <?php if( have_rows('map-pins') ): ?>
 	<div class="acf-map">
 		<?php while ( have_rows('map-pins') ) : the_row();
@@ -19,95 +19,83 @@
 </div>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCG3l_pG-5BMKnGDpYenf_eUgVSy0wtPes"></script>
-<script src="<?php bloginfo('template_url'); ?>/js/map-sucursales.js"></script>
+<script src="<?php bloginfo('template_url'); ?>/js/map-sucursales.js"></script><?php
 
-<div class="block location tabs push_top push_bot">
-	<img src="http://placehold.it/240x90&text=FOODIE">
-	<img src="http://placehold.it/300x90&text=MR.BROWN">
-	<img src="http://placehold.it/240x90&text=FOODTRUCK">
-</div>
 
-<section id="content" class="location content slider">
-	<div class="slide">
+	// Tabs
+
+	$n = 1;
+
+	if(have_rows('business')) : ?>
+<div class="block location tabs push_top push_bot"><?php
+		while (have_rows('business')) {
+			the_row();
+			$name = get_sub_field('name');
+			$dayIcon = get_sub_field('img_day');
+			$nightIcon = get_sub_field('img_night');
+
+			if($dayIcon) { ?>
+	<a href="#tabC<?php echo $n++; ?>" class="hint--top" data-hint="<?php echo $name; ?>">
+		<img src="<?php echo $dayIcon['url']; ?>" alt="<?php
+				if(!$name) {
+					echo $imgHuge['alt'];
+				} else {
+					echo $name;
+				} ?>">
+	</a><?php
+			}
+			// else {} 		If Night
+		}?>
+	<div class="pointer"></div>
+</div><?php
+	endif;
+
+
+	// Content
+
+	$n = 1;
+
+	if(have_rows('business')) : ?>
+<section id="content" class="location content slider"><?php
+		while (have_rows('business')) :
+			the_row(); ?>
+	<div class="slide" id="tabC<?php echo $n++;?>">
 		<div class="wrap">
 			<div class="info">
-				<h2>MR. BROWN </h2>
-				<p>Nuestro legado más claro: Comida desenfadada con estilo. Comé como a Mr. Brown le gustaría que pruebes sus recetas.</p>
+				<h2><?php the_sub_field('name'); ?> </h2>
+				<?php the_sub_field('about'); ?>
 			</div>
 			<div class="faq">
-				<h3>¿Tienen servicio a domicilio?</h3>
-				<p>Solo en los foodies bro, revisa el menú de foodies <a href="#">aquí</a>.</p>
-			</div>
-			<div class="tour">
-				<iframe style="border:0"  src="https://www.google.com/maps/embed?pb=!1m0!3m2!1ses-419!2smx!4v1467232476784!6m8!1m7!1sRNiYgvT-dzQAAAQvOzevIQ!2m2!1d25.6868143302259!2d-100.3766458226108!3f298.54260953890486!4f2.5782313206379257!5f0.7820865974627469&scrollwheel=false" width="600" height="600" frameborder="0" scrolling="no"></iframe>
-			</div>
-		</div>
-		<ul class="wrap joints">
-			<li>
-				<h3>San Jerónimo</h3>
-				<a href="tel:81439291">8143 9291</a>
+				<?php the_sub_field('details'); ?>
+			</div><?php
 
-				<p>Av. Anillo Periferico
-				1300  San Jerónimo
-				Plaza Platino
-				Monterrey</p>
+			if(have_rows('tours')) { ?>
+			<div class="tour"><?php
+				while (have_rows('tours')) {
+					the_row();
+					// the_sub_field('name');
+					the_sub_field('embed');
+				} ?>
+			</div><?php
+			}
 
-				<a href="#" class="button">Direcciones</a>
-			</li>
-			<li>
-				<h3>San Nicolás</h3>
-				<a href="tel:8335 3383">8335 3383</a>
+			?>
+		</div><?php
 
-				<p>Av. Manuel L. Barragán
-				550 Col. Residencial Anáhuac
-				San Nicolás de los Garza</p>
+		if (have_rows('directions')) : ?>
+		<ul class="wrap joints"><?php
+			while (have_rows('directions')) {
+				the_row(); ?>
+			<li><?php the_sub_field('info'); ?></li><?php
+			}?>
+		</ul><?php
+		endif;
 
-				<a href="#" class="button">Direcciones</a>
-			</li>
-			<li>
-				<h3>Garza Sada</h3>
-				<a href="tel:81439291">8143 9291</a>
+		?>
+	</div><?php
+		endwhile; ?>
+</section><?php
+	endif;
 
-				<p>Av. Eugenio
-				Garza Sada 1892
-				Monterrey</p>
 
-				<a href="#" class="button">Direcciones</a>
-			</li>
-			<li>
-				<h3>Cd. de México</h3>
-				<a href="tel:55340450">5534 0450</a>
-
-				<p>Plaza Portal
-				Lomas Estrella,
-				Tercer Piso
-				CDMX, México</p>
-
-				<a href="#" class="button">Direcciones</a>
-			</li>
-			<li>
-				<h3>Garza Sada</h3>
-				<a href="tel:81439291">8143 9291</a>
-
-				<p>Av. Eugenio
-				Garza Sada 1892
-				Monterrey</p>
-
-				<a href="#" class="button">Direcciones</a>
-			</li>
-			<li>
-				<h3>Cd. de México</h3>
-				<a href="tel:55340450">5534 0450</a>
-
-				<p>Plaza Portal
-				Lomas Estrella,
-				Tercer Piso
-				CDMX, México</p>
-
-				<a href="#" class="button">Direcciones</a>
-			</li>
-		</ul>
-	</div>
-</section>
-
-<?php get_footer(); ?>
+	get_footer(); ?>

@@ -117,6 +117,9 @@ input, textarea {
 textarea {
   max-width: 100%; }
 
+iframe {
+  background: #fffac8; }
+
 .wrap {
   max-width: 80em;
   margin-left: auto;
@@ -626,7 +629,7 @@ nav.mobile {
         opacity: 0.5; }
   .block.video {
     min-height: 20em;
-    background: rgba(255, 223, 34, 0.25); }
+    background: #fffac8; }
   .block .newsloop {
     margin-top: 2em;
     overflow: auto; }
@@ -684,26 +687,69 @@ nav.mobile {
     line-height: 2em;
     margin-top: 1em; }
 
+.mapping .acf-map {
+  height: 30em; }
+  @media screen and (max-width: 1000px) {
+    .mapping .acf-map {
+      height: 18em; } }
+@media screen and (max-width: 600px) {
+  .mapping {
+    display: none; } }
+
 .location.tabs {
   text-align: center;
-  letter-spacing: -1em;
   line-height: 0;
-  overflow: hidden; }
+  overflow: visible;
+  position: relative; }
+  .location.tabs > a {
+    display: inline-block; }
+  @media screen and (max-width: 800px) {
+    .location.tabs img {
+      max-height: 4em; } }
+  @media screen and (max-width: 600px) {
+    .location.tabs img {
+      max-height: 3em; } }
+  @media screen and (max-width: 425px) {
+    .location.tabs {
+      display: none; } }
+  .location.tabs .pointer {
+    content: "";
+    display: block;
+    width: 4em;
+    height: 2em;
+    position: absolute;
+    bottom: -6em;
+    z-index: 2;
+    background-image: url("../img/location-pointer.svg");
+    background-size: cover; }
+    @media screen and (max-width: 800px) {
+      .location.tabs .pointer {
+        bottom: -4em; } }
 
 .location.content {
-  background: #FFDF22;
-  padding: 4em 0; }
+  padding: 4em 0;
+  overflow: auto; }
+  @media screen and (min-width: 425px) {
+    .location.content .slide {
+      display: none; }
+      .location.content .slide:nth-child(1) {
+        display: block; } }
   .location.content .info, .location.content .faq {
-    width: 40%;
+    width: 45%;
     margin: 2.5%;
     float: left; }
+    @media screen and (max-width: 600px) {
+      .location.content .info, .location.content .faq {
+        width: 100%;
+        margin: 0 0 2em !important;
+        padding: 0 1em; } }
   .location.content .faq {
     margin-top: 6em;
     font-size: 0.9em; }
   .location.content h2 {
     font-family: "Flama Bold", Helvetica, Arial, sans-serif;
     font-size: 2em;
-    text-shadow: -0.1em 0.1em #FFF;
+    text-shadow: -0.1em 0.1em #FFDF22;
     margin-bottom: 0.5em; }
   .location.content iframe {
     clear: both;
@@ -712,10 +758,17 @@ nav.mobile {
     position: relative; }
     .location.content iframe.clicked {
       pointer-events: auto; }
+    @media screen and (max-width: 1000px) {
+      .location.content iframe {
+        height: 20em; } }
+    @media screen and (max-width: 600px) {
+      .location.content iframe {
+        height: 14em; } }
   .location.content ul.joints {
     overflow: auto;
     margin: 2em auto;
-    padding: 0 1em; }
+    padding: 0 1em;
+    clear: both; }
     .location.content ul.joints li {
       width: 10em;
       min-height: 10em;
@@ -731,6 +784,14 @@ nav.mobile {
       font-family: "FlamaCn", Helvetica, Arial, sans-serif; }
   .location.content h3, .location.content a.tel {
     font-family: "Flama Bold", Helvetica, Arial, sans-serif; }
+  @media screen and (min-width: 425px) {
+    .location.content {
+      background: #FFDF22; }
+      .location.content h2 {
+        text-shadow: -0.1em 0.1em white; } }
+  @media screen and (max-width: 425px) {
+    .location.content .tour {
+      display: none; } }
 
 ::selection {
   background: #FFDF22;
@@ -786,8 +847,7 @@ a.gotomenu {
         height: 1em; } }
 
 .acf-map {
-  width: 100%;
-  height: 40em; }
+  width: 100%; }
   .acf-map img {
     max-width: inherit !important; }
 
@@ -815,6 +875,16 @@ nav.mobile {
 
 .open_nav nav.mobile {
   top: 2.75em; }
+
+.tabs .pointer {
+  -moz-transition-property: left;
+  -o-transition-property: left;
+  -webkit-transition-property: left;
+  transition-property: left;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s; }
 
 .alignnone {
   margin: 5px 20px 20px 0; }
