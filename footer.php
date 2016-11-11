@@ -49,18 +49,22 @@
 					endif;
 
 
-					// Sucursales
-					if(have_rows('ft_sucursales', 'option')) : ?>
-					<ul><?php
-						while (have_rows('ft_sucursales', 'option')) :
-						the_row(); ?>
-						<li>
-							<?php the_sub_field('info'); ?>
-						</li><?php
-						endwhile; ?>
-					</ul><?php
-					endif;
 
+					// Sucursales
+					global $post;
+					if(!($post->post_name == 'sucursales')) { // Hide if in 'sucursales' page
+
+						if(have_rows('ft_sucursales', 'option')) : ?>
+						<ul><?php
+							while (have_rows('ft_sucursales', 'option')) :
+							the_row(); ?>
+							<li>
+								<?php the_sub_field('info'); ?>
+							</li><?php
+							endwhile; ?>
+						</ul><?php
+						endif;
+					}
 
 					?>
 				</div>
