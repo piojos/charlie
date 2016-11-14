@@ -48,12 +48,14 @@
 		}?>
 	<div class="pointer"></div>
 </div><?php
+
+		$n = 1;
 	endif;
 
 
-	// Content
 
-	$n = 1;
+
+	// Content
 
 	if(have_rows('business')) : ?>
 <section id="content" class="location content slider"><?php
