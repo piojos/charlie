@@ -118,6 +118,9 @@
 			float: left
 			iframe
 				width: 100%
+				pointer-events: none
+				&.clicked
+					pointer-events: auto
 				@media screen and (max-width: 425px)
 					height: 200px
 			@media screen and (max-width: 800px)

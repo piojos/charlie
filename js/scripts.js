@@ -46,10 +46,12 @@
 			]
 		});
 
-		$('.tour').click(function(){
-			$(this).find('iframe').addClass('clicked')
+		$('.tour, .explore .mapa').click(function(){
+			console.log('One');
+			$(this).find('iframe').addClass('clicked');
 		}).mouseleave(function(){
-			$(this).find('iframe').removeClass('clicked')
+			console.log('Due');
+			$(this).find('iframe').removeClass('clicked');
 		});
 
 		$('.location.tabs > a').click(function(e) {

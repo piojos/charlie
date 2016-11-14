@@ -223,7 +223,7 @@ header {
     top: -0.15em;
     border: none; }
 .mobile.sub_nav {
-  background: black;
+  background: #231F20;
   color: white;
   padding: 0.75em 1.5em;
   width: 80%;
@@ -276,7 +276,7 @@ header {
       display: block; } }
 .sub_nav.menu_filter .call {
   background: #FFDF22;
-  color: black;
+  color: #231F20;
   float: left;
   width: 14em;
   position: absolute;
@@ -508,7 +508,10 @@ nav.mobile {
     padding-right: 2em;
     float: left; }
     .block.explore .mapa iframe {
-      width: 100%; }
+      width: 100%;
+      pointer-events: none; }
+      .block.explore .mapa iframe.clicked {
+        pointer-events: auto; }
       @media screen and (max-width: 425px) {
         .block.explore .mapa iframe {
           height: 200px; } }
@@ -703,12 +706,14 @@ nav.mobile {
   position: relative; }
   .location.tabs > a {
     display: inline-block; }
-  @media screen and (max-width: 800px) {
-    .location.tabs img {
-      max-height: 4em; } }
-  @media screen and (max-width: 600px) {
-    .location.tabs img {
-      max-height: 3em; } }
+  .location.tabs img {
+    max-height: 5.5em; }
+    @media screen and (max-width: 800px) {
+      .location.tabs img {
+        max-height: 4em; } }
+    @media screen and (max-width: 600px) {
+      .location.tabs img {
+        max-height: 3em; } }
   @media screen and (max-width: 425px) {
     .location.tabs {
       display: none; } }
