@@ -9,8 +9,8 @@
 	<a href="#" class="currentId">Burgers</a>
 	<div class="instructions">
 		Mostrar solo: <br>
-		<button class="delivery"><img src="http://placehold.it/40x26&text=MOTO"></button>
-		<button class="foodtruck"><img src="http://placehold.it/50x26&text=TRUCK"></button>
+		<button class="delivery"><img src="<?php bloginfo('template_url'); ?>/img/icon-moto-white.svg"></button>
+		<button class="foodtruck"><img src="<?php bloginfo('template_url'); ?>/img/icon-truck-white.svg"></button>
 	</div><?php
 	if( $dishTypes ): ?>
 	<ul><?php
@@ -28,7 +28,7 @@
 			the_row();
 			$tel = get_sub_field('tel'); ?>
 			<?php the_sub_field('title'); ?><br>
-			<strong><a href="tel:<?php echo $tel; ?>"><?php echo $tel; ?></a></strong><?php 
+			<strong><a href="tel:<?php echo $tel; ?>"><?php echo $tel; ?></a></strong><?php
 		endwhile; ?>
 	</div><?php
 	endif; ?>

@@ -588,6 +588,7 @@ nav.mobile {
       max-width: 50em; }
     .block.food .opts {
       background: no-repeat center;
+      background-size: cover;
       width: 2em;
       height: 1em;
       display: inline-block;
@@ -597,9 +598,10 @@ nav.mobile {
       .block.food .opts.yes {
         opacity: 1; }
       .block.food .opts.delivery {
-        background-image: url(http://placehold.it/30x30/F00&text=MOTO); }
+        background-image: url("../img/icon-moto-black.svg"); }
       .block.food .opts.foodtruck {
-        background-image: url(http://placehold.it/40x30/F00&text=TRUCK); }
+        background-image: url("../img/icon-truck-black.svg");
+        margin-right: 0.35em; }
     .block.food.template {
       background: none;
       border-top: none; }
