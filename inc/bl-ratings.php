@@ -1,3 +1,4 @@
+<?php /*
 <div class="block ranking push_top push_bot pad_top pad_bot">
 	<h2 class="shadow">Todos hablan de mi</h2>
 	<ul>
@@ -30,3 +31,4 @@
 		</li>
 	</ul>
 </div>
+*/ ?>
