@@ -120,6 +120,9 @@ textarea {
 iframe {
   background: #fffac8; }
 
+[data-hint]:after {
+  font-family: "FlamaCn Bold", Helvetica, Arial, sans-serif; }
+
 .wrap {
   max-width: 80em;
   margin-left: auto;
@@ -171,7 +174,6 @@ header {
     display: inline-block;
     max-width: 70%;
     white-space: nowrap;
-    overflow: hidden;
     text-overflow: ellipsis;
     margin-bottom: -0.2em; }
     .stripe .text_promo strong {
@@ -181,24 +183,27 @@ header {
         font-size: 1.5em; } }
     @media screen and (max-width: 600px) {
       .stripe .text_promo {
+        overflow: hidden;
         font-size: 1.25em;
         max-width: 100%; } }
-  .stripe span:nth-child(1),
-  .stripe span:nth-last-child(1) {
+  .stripe .wrap > div:nth-child(1),
+  .stripe .wrap > div:nth-last-child(1) {
     position: relative;
     top: 0.5em; }
     @media screen and (max-width: 800px) {
-      .stripe span:nth-child(1),
-      .stripe span:nth-last-child(1) {
+      .stripe .wrap > div:nth-child(1),
+      .stripe .wrap > div:nth-last-child(1) {
         top: 0.25em; } }
     @media screen and (max-width: 600px) {
-      .stripe span:nth-child(1),
-      .stripe span:nth-last-child(1) {
+      .stripe .wrap > div:nth-child(1),
+      .stripe .wrap > div:nth-last-child(1) {
         display: none; } }
-  .stripe span:nth-child(1) {
+  .stripe .wrap > div:nth-child(1) {
     float: left; }
-  .stripe span:nth-last-child(1) {
+  .stripe .wrap > div:nth-last-child(1) {
     float: right; }
+  .stripe [data-hint]:after {
+    font-size: 0.65em; }
 
 .mobile.bar {
   display: none;
@@ -870,6 +875,34 @@ a.gotomenu {
   .pagination p {
     display: inline-block; }
 
+#currentTime {
+  width: 1.5em;
+  height: 2.2em;
+  background: url("../img/currently.svg") no-repeat center;
+  position: relative;
+  top: -0.5em;
+  background-position-y: 40%; }
+  #currentTime.day {
+    background-position-y: 40%; }
+  #currentTime.sunset {
+    background-position-y: 20%;
+    border-bottom: 1px solid; }
+  #currentTime.night {
+    background-position-y: -25%; }
+  #currentTime.sunrise {
+    background-position-y: 80%;
+    border-bottom: 1px solid; }
+  @media screen and (max-width: 800px) {
+    #currentTime {
+      height: 1.8em; }
+      #currentTime.sunset {
+        background-position-y: 28%; }
+      #currentTime.night {
+        background-position-y: -16%;
+        height: 2em; }
+      #currentTime.day {
+        height: 2em; } }
+
 nav.mobile {
   -moz-transition-property: top;
   -o-transition-property: top;
@@ -888,6 +921,16 @@ nav.mobile {
   -o-transition-property: left;
   -webkit-transition-property: left;
   transition-property: left;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s; }
+
+#currentTime {
+  -moz-transition-property: background-position-y;
+  -o-transition-property: background-position-y;
+  -webkit-transition-property: background-position-y;
+  transition-property: background-position-y;
   -moz-transition-duration: 0.5s;
   -o-transition-duration: 0.5s;
   -webkit-transition-duration: 0.5s;
