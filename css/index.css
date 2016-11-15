@@ -638,8 +638,11 @@ nav.mobile {
       .block.ranking .rating span.half {
         opacity: 0.5; }
   .block.video {
-    min-height: 20em;
-    background: #fffac8; }
+    background: #fffac8;
+    line-height: 0;
+    overflow: visible; }
+    .block.video video {
+      width: 100%; }
   .block .newsloop {
     margin-top: 2em;
     overflow: auto; }

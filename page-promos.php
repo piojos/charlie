@@ -1,6 +1,7 @@
 <?php get_header();
 
 
+	get_template_part('inc/bl', 'video');
 	get_template_part('inc/blocks', 'manager');
 
 ?>
