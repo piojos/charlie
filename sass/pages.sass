@@ -7,93 +7,108 @@
 	@media screen and (max-width: 600px)
 		display: none
 
-.location.tabs
-	text-align: center
-	line-height: 0
-	overflow: visible
-	position: relative
-	> a
-		display: inline-block
-	img
-		max-height: 5.5em
-		@media screen and (max-width: 800px)
-			max-height: 4em
-		@media screen and (max-width: 600px)
-			max-height: 3em
-	@media screen and (max-width: 425px)
-		display: none
-	.pointer
-		content: ''
-		display: block
-		width: 4em
-		height: 2em
-		position: absolute
-		bottom: -6em
-		z-index: 2
-		background-image: url('../img/location-pointer.svg')
-		background-size: cover
-		@media screen and (max-width: 800px)
-			bottom: -4em
-
-.location.content
-	padding: 4em 0
-	overflow: auto
-	.slide
-		@media screen and (min-width: 425px)
+.location
+	&.tabs
+		text-align: center
+		line-height: 0
+		overflow: visible
+		position: relative
+		> a
+			display: inline-block
+		img
+			max-height: 5.5em
+			@media screen and (max-width: 800px)
+				max-height: 4em
+			@media screen and (max-width: 600px)
+				max-height: 3em
+		@media screen and (max-width: 425px)
 			display: none
-			&:nth-child(1)
-				display: block
-	.info, .faq
-		width: 45%
-		margin: 2.5%
-		float: left
-		@media screen and (max-width: 600px)
+		.pointer
+			content: ''
+			display: block
+			width: 4em
+			height: 2em
+			position: absolute
+			bottom: -6em
+			z-index: 2
+			background-image: url('../img/location-pointer.svg')
+			background-size: cover
+			@media screen and (max-width: 800px)
+				bottom: -4em
+
+	&.content
+		padding: 4em 0
+		overflow: auto
+		.slide
+			@media screen and (min-width: 425px)
+				display: none
+				&:nth-child(1)
+					display: block
+		.info, .faq
+			width: 45%
+			margin: 2.5%
+			float: left
+			@media screen and (max-width: 600px)
+				width: 100%
+				margin: 0 0 2em !important
+				padding: 0 1em
+		.faq
+			margin-top: 6em
+			font-size: .9em
+		h2
+			font-family: $FlamaBold
+			font-size: 2em
+			text-shadow: -0.1em 0.1em $yellow
+			margin-bottom: .5em
+		iframe
+			clear: both
 			width: 100%
-			margin: 0 0 2em !important
+			pointer-events: none
+			position: relative
+			&.clicked
+				pointer-events: auto
+			@media screen and (max-width: 1000px)
+				height: 20em
+			@media screen and (max-width: 600px)
+				height: 14em
+		ul.joints
+			overflow: auto
+			margin: 2em auto
 			padding: 0 1em
-	.faq
-		margin-top: 6em
-		font-size: .9em
+			clear: both
+			li
+				width: 10em
+				min-height: 10em
+				float: left
+				margin-right: 1em
+				&:nth-last-child(1)
+					margin-right: 0
+			p
+				margin: 1em 0
+				font-size: .75em
+			a.button
+				font-size: .75em
+				font-family: $FlamaCn
+		h3, a.tel
+			font-family: $FlamaBold
+		@media screen and (min-width: 425px)
+			background: $yellow
+			h2
+				text-shadow: -0.1em 0.1em $white
+		@media screen and (max-width: 425px)
+			.tour
+				display: none
+
+
+// any Page
+article
+	margin: 4em 0
+	h1
+		font-size: 2em
+		font-family: $FlamaBold
+		text-shadow: -0.1em 0.1em $yellow
+		margin-bottom: 1em
 	h2
 		font-family: $FlamaBold
-		font-size: 2em
-		text-shadow: -0.1em 0.1em $yellow
-		margin-bottom: .5em
-	iframe
-		clear: both
-		width: 100%
-		pointer-events: none
-		position: relative
-		&.clicked
-			pointer-events: auto
-		@media screen and (max-width: 1000px)
-			height: 20em
-		@media screen and (max-width: 600px)
-			height: 14em
-	ul.joints
-		overflow: auto
-		margin: 2em auto
-		padding: 0 1em
-		clear: both
-		li
-			width: 10em
-			min-height: 10em
-			float: left
-			margin-right: 1em
-			&:nth-last-child(1)
-				margin-right: 0
-		p
-			margin: 1em 0
-			font-size: .75em
-		a.button
-			font-size: .75em
-			font-family: $FlamaCn
-	h3, a.tel
-		font-family: $FlamaBold
-	@media screen and (min-width: 425px)
-		background: $yellow
-		h2
-			text-shadow: -0.1em 0.1em $white
-	@media screen and (max-width: 425px)
-		.tour
-			display: none
+	.content
+		line-height: 1.75em

@@ -740,7 +740,6 @@ nav.mobile {
     @media screen and (max-width: 800px) {
       .location.tabs .pointer {
         bottom: -4em; } }
-
 .location.content {
   padding: 4em 0;
   overflow: auto; }
@@ -807,6 +806,18 @@ nav.mobile {
   @media screen and (max-width: 425px) {
     .location.content .tour {
       display: none; } }
+
+article {
+  margin: 4em 0; }
+  article h1 {
+    font-size: 2em;
+    font-family: "Flama Bold", Helvetica, Arial, sans-serif;
+    text-shadow: -0.1em 0.1em #FFDF22;
+    margin-bottom: 1em; }
+  article h2 {
+    font-family: "Flama Bold", Helvetica, Arial, sans-serif; }
+  article .content {
+    line-height: 1.75em; }
 
 ::selection {
   background: #FFDF22;
