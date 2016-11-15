@@ -83,3 +83,33 @@ a.gotomenu
 		padding-top: .15em
 	p
 		display: inline-block
+
+
+
+// Current Time Animation
+#currentTime
+	width: 1.5em
+	height: 2.2em
+	background: url('../img/currently.svg') no-repeat center
+	position: relative
+	top: -.5em
+	background-position-y: 40%
+	&.day
+		background-position-y: 40%
+	&.sunset
+		background-position-y: 20%
+		border-bottom: 1px solid
+	&.night
+		background-position-y: -25%
+	&.sunrise
+		background-position-y: 80%
+		border-bottom: 1px solid
+	@media screen and (max-width: 800px)
+		height: 1.8em
+		&.sunset
+			background-position-y: 28%
+		&.night
+			background-position-y: -16%
+			height: 2em
+		&.day
+			height: 2em

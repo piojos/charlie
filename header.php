@@ -100,8 +100,8 @@
 
 	<div class="stripe">
 		<div class="wrap">
-			<span>Buen día Bro</span>
-			<span class="text_promo">Hoy Miercoles <strong>2x1 en Alitas</strong> antes de las 7:00pm</span>
-			<span>HO:UR PM</span>
+			<div>Buen día Bro</div>
+			<div class="text_promo"><?php the_field('stripe_promo', 'option'); ?></div>
+			<div id="currentTime"></div>
 		</div>
 	</div>
