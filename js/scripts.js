@@ -47,14 +47,14 @@
 			centerPadding: '10px',
 			responsive: [
 				{
-				breakpoint: 1000,
+				breakpoint: 1250,
 				settings: {
 					slidesToShow: 3,
 					slidesToScroll: 3,
 					}
 				},
 				{
-				breakpoint: 800,
+				breakpoint: 900,
 				settings: {
 					slidesToShow: 2,
 					slidesToScroll: 2
