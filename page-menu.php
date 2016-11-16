@@ -21,7 +21,6 @@
 
 
 	// Cover (opcional)
-
 	if($cover) : ?>
 		<div class="block promo simple no_text"><?php
 		if($coverHuge) { ?>
@@ -59,7 +58,8 @@
 			</section>
 
 		<?php endforeach; ?>
-	</div><?php
+	</div>
+	<div class="food modal fly"></div><?php
 	endif;
 
 

@@ -73,6 +73,41 @@
 
 
 
+// Food: Modals
+		var fly = '.food.modal.fly';
+		$('.food .slider a.slide').click(function(e){
+			e.preventDefault();
+			var link = jQuery(this).attr('href');
+			var pOff = $(this).offset();
+			var pW = $(fly).width();
+			var wW = $(window).width();
+			if(wW/2 < pOff.left) {
+				var lft = pOff.left-(pW*.5);
+			} else {
+				var lft = pOff.left;
+			}
+			$('body').addClass('open_modal');
+			$(fly).fadeIn('slow').css('top', (pOff.top-20)).css('left', (lft-20));
+			$(fly).addClass('loading').html('<h1>Ay vengo!</h1>');
+			$(fly).load(link+' .food.modal > div', function(){
+				$(fly).removeClass('loading');
+			});
+		});
+		$('button.slick-arrow').click(function(){
+			$(fly).fadeOut('slow');
+		});
+		// $('body').click(function(e) {
+		// 	if($(this).hasClass('open_modal')) {
+		// 		if ($(e.target).closest(fly).length === 0) {
+		// 			// $(fly).fadeOut('slow');
+		// 			// $('body').removeClass('open_modal');
+		// 			console.log('ay!');
+		// 		}
+		// 	}
+		// });
+
+
+
 // Prevent autoscroll
 		$('.tour, .explore .mapa').click(function(){
 			console.log('One');

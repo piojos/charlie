@@ -100,6 +100,71 @@
 				display: none
 
 
+// Food Modal
+.food.modal
+	border: 6px solid $yellow
+	overflow: auto
+	background: rgba(255, 255, 255, 0.9)
+	z-index: 10
+	> div
+		width: 46%
+		margin: 2%
+		float: left
+	.img
+		line-height: 0
+	.info
+		text-align: center
+	.pricetag
+		font-family: $FlamaCnBold
+		font-size: 1.25em
+	.opts
+		background: $black
+		color: $white
+		text-transform: uppercase
+		width: 8em
+		font-family: $FlamaBold
+		line-height: 1em
+		letter-spacing: 2px
+		display: inline-block
+		padding: 4px 0 4px 4px
+		margin-left: 1em
+		position: relative
+		top: -1em
+		> span
+			font-family: $FlamaCn
+			letter-spacing: 0
+		img
+			float: left
+		&.delivery img
+			margin: .4em 0em
+		&.truck
+			width: 6.5em
+			img
+				margin-top: .1em
+	.about
+		font-size: .8em
+	&.fly
+		width: 40em
+		position: absolute
+		min-height: 10em
+		display: none
+		h1
+			font-size: 2em
+			font-family: $FlamaBold
+			text-shadow: -0.1em 0.1em $yellow
+			margin-bottom: 1em
+	&.loading
+		height: 298px
+		background: $yellow
+		color: $white
+		font-family: $FlamaBold
+		text-align: center
+		padding-top: 6em
+		// font-size: 2em
+
+
+
+
 // any Page
 article
 	margin: 4em 0
