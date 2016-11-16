@@ -551,18 +551,6 @@ nav.mobile {
       margin: 1em 0; }
     .block.food .mobile {
       display: none; }
-    .block.food .price {
-      background: #FFDF22;
-      border-radius: 50%;
-      width: 3em;
-      height: 3em;
-      display: inline-block;
-      padding-top: 0.9em;
-      top: -1.25em;
-      position: relative;
-      margin-bottom: -1em; }
-      .block.food .price:before {
-        content: "$"; }
     .block.food a.dish {
       font-size: 1.5em;
       font-family: "FlamaCn Bold", Helvetica, Arial, sans-serif;
@@ -577,12 +565,7 @@ nav.mobile {
       .block.food .large {
         display: none; }
       .block.food .mobile {
-        display: block; }
-      .block.food .price {
-        width: 2.5em;
-        height: 2.5em;
-        font-size: 0.75em;
-        padding-top: 0.75em; } }
+        display: block; } }
     .block.food .notes {
       background: #FFDF22;
       margin-bottom: 1em;
@@ -807,6 +790,66 @@ nav.mobile {
     .location.content .tour {
       display: none; } }
 
+.food.modal {
+  border: 6px solid #FFDF22;
+  overflow: auto;
+  background: rgba(255, 255, 255, 0.9);
+  z-index: 10; }
+  .food.modal > div {
+    width: 46%;
+    margin: 2%;
+    float: left; }
+  .food.modal .img {
+    line-height: 0; }
+  .food.modal .info {
+    text-align: center; }
+  .food.modal .pricetag {
+    font-family: "FlamaCn Bold", Helvetica, Arial, sans-serif;
+    font-size: 1.25em; }
+  .food.modal .opts {
+    background: #231F20;
+    color: white;
+    text-transform: uppercase;
+    width: 8em;
+    font-family: "Flama Bold", Helvetica, Arial, sans-serif;
+    line-height: 1em;
+    letter-spacing: 2px;
+    display: inline-block;
+    padding: 4px 0 4px 4px;
+    margin-left: 1em;
+    position: relative;
+    top: -1em; }
+    .food.modal .opts > span {
+      font-family: "FlamaCn", Helvetica, Arial, sans-serif;
+      letter-spacing: 0; }
+    .food.modal .opts img {
+      float: left; }
+    .food.modal .opts.delivery img {
+      margin: 0.4em 0em; }
+    .food.modal .opts.truck {
+      width: 6.5em; }
+      .food.modal .opts.truck img {
+        margin-top: 0.1em; }
+  .food.modal .about {
+    font-size: 0.8em; }
+  .food.modal.fly {
+    width: 40em;
+    position: absolute;
+    min-height: 10em;
+    display: none; }
+    .food.modal.fly h1 {
+      font-size: 2em;
+      font-family: "Flama Bold", Helvetica, Arial, sans-serif;
+      text-shadow: -0.1em 0.1em #FFDF22;
+      margin-bottom: 1em; }
+  .food.modal.loading {
+    height: 298px;
+    background: #FFDF22;
+    color: white;
+    font-family: "Flama Bold", Helvetica, Arial, sans-serif;
+    text-align: center;
+    padding-top: 6em; }
+
 article {
   margin: 4em 0; }
   article h1 {
@@ -859,6 +902,7 @@ a.gotomenu {
     font-size: 2em;
     width: 1.5em;
     height: 1.5em;
+    padding: 0;
     border: 0;
     line-height: 0;
     z-index: 2; }
@@ -876,6 +920,25 @@ a.gotomenu {
   width: 100%; }
   .acf-map img {
     max-width: inherit !important; }
+
+.pricetag {
+  background: #FFDF22;
+  border-radius: 50%;
+  width: 3em;
+  height: 3em;
+  display: inline-block;
+  padding-top: 0.9em;
+  top: -1.25em;
+  position: relative;
+  margin-bottom: -1em; }
+  .pricetag:before {
+    content: "$"; }
+  @media screen and (max-width: 425px) {
+    .pricetag {
+      width: 2.5em;
+      height: 2.5em;
+      font-size: 0.75em;
+      padding-top: 0.75em; } }
 
 .pagination {
   text-align: center; }
@@ -945,6 +1008,16 @@ nav.mobile {
   -o-transition-property: background-position-y;
   -webkit-transition-property: background-position-y;
   transition-property: background-position-y;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s; }
+
+.food.modal {
+  -moz-transition-property: top, left, height, width, opacity;
+  -o-transition-property: top, left, height, width, opacity;
+  -webkit-transition-property: top, left, height, width, opacity;
+  transition-property: top left height width opacity;
   -moz-transition-duration: 0.5s;
   -o-transition-duration: 0.5s;
   -webkit-transition-duration: 0.5s;
