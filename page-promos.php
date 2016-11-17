@@ -1,9 +1,11 @@
-<?php get_header();
+<?php
 
+	get_header();
 
 	get_template_part('inc/bl', 'video');
 	get_template_part('inc/blocks', 'manager');
 
+	/*
 ?>
 
 
@@ -38,6 +40,8 @@
 			</a>
 		</li>
 	</ul>
-</div>
+</div><?php
 
-<?php get_footer(); ?>
+	*/
+
+	get_footer(); ?>
