@@ -8,22 +8,32 @@ if(have_rows('intro')) :
 		$fallback = get_sub_field('fallback');
 		$webm = get_sub_field('webm');
 		$mp4 = get_sub_field('mp4');
+		$introClass = ' intro';
 	}
 else :
 	$fallback = get_sub_field('fallback');
 	$webm = get_sub_field('webm');
 	$mp4 = get_sub_field('mp4');
 endif;
+$animatedLogo = get_field('logo_anim', 'options');
 
  ?>
-<div class="block video"><?php
-	// <pre>
-	// 	print_r($fallback);
-	// 	print_r($webm);
-	// 	print_r($mp4);
-	// </pre> ?>
-	<video poster='<?php echo $fallback[url]; ?>' playsinline autoplay muted loop >
-		<source src='<?php echo $webm[url]; ?>' type='video/webm'>
-		<source src='<?php echo $mp4[url]; ?>' type='video/mp4'>
+
+
+<div class="block video<?php echo $introClass; ?>"><?php
+	if( !empty($animatedLogo) ): ?>
+	<div class="message">
+		<img id="sticky" src="<?php echo $animatedLogo['url']; ?>" alt="<?php echo $animatedLogo['alt']; ?>" class="random" data-aos="huge-out" data-aos-anchor-placement="top-top" />
+	</div><?php
+	endif; ?>
+	<video poster='<?php echo $fallback[url]; ?>' playsinline autoplay muted loop ><?php
+	if($webm) { ?>
+		<source src='<?php echo $webm[url]; ?>' type='video/webm'><?php
+	}
+
+	if($mp4) { ?>
+		<source src='<?php echo $mp4[url]; ?>' type='video/mp4'><?php
+	} ?>
 	</video>
+
 </div>
