@@ -110,10 +110,8 @@
 
 // Prevent autoscroll
 		$('.tour, .explore .mapa').click(function(){
-			console.log('One');
 			$(this).find('iframe').addClass('clicked');
 		}).mouseleave(function(){
-			console.log('Due');
 			$(this).find('iframe').removeClass('clicked');
 		});
 
@@ -124,7 +122,6 @@
 		$('.location.tabs > a').click(function(e) {
 			e.preventDefault();
 			var thisID = $(this).attr('href');
-			console.log(thisID);
 			// $(thisID).addClass('active');
 			$('#content.location .slide').fadeOut('slow');
 			$(thisID).fadeIn();
@@ -135,14 +132,64 @@
 			var newPointerX = pos.left + (pwi/2)-16;
 			$('.pointer').css("left", newPointerX);
 		});
-		var p = $('.location.tabs > a:first-child');
-		var pos = p.position();
-		var pwi = p.width();
-		var initialPointerX = pos.left + pwi/2;
 
-		// $( "p:last" ).text( "left: " + position.left + ", top: " + position.top );
-		$('.pointer').css("left", initialPointerX);
+		if ($('.location.tabs').length){
+			var p = $('.location.tabs > a:first-child');
+			var pos = p.position();
+			var pwi = p.width();
+			var initialPointerX = pos.left + pwi/2;
+			// $( "p:last" ).text( "left: " + position.left + ", top: " + position.top );
+			$('.pointer').css("left", initialPointerX);
+		}
 
+
+
+// Video
+		if ($('.block.video.intro').length){
+			$('.block.video').prependTo('body');
+			$('.block.video video').get(0).play()
+			$('body').addClass('has_video');
+			setTimeout(function() {
+				// $('img.random').removeClass('hide').prependTo('.block.video');
+			}, 0);
+
+		}
+
+
+
+
+// Scroll Magic
+		AOS.init({
+			duration: 1200
+		});
+
+
+
+
+// Sticky menu
+		var stickyTop = $('header').offset().top-20;
+		var lastScrollTop = 0;
+
+		$(window).on( 'scroll', function(){
+			if ($(window).scrollTop() >= stickyTop) {
+				$('header, .stripe').addClass('fix');
+			} else {
+				$('header, .stripe').removeClass('fix');
+			}
+		});
+
+
+		$(window).on('scroll', function() {
+			var st = $(this).scrollTop();
+			if(st < lastScrollTop) {
+				$('header').removeClass('compact');
+			} else {
+				if ($(window).scrollTop() >= stickyTop) {
+					$('header').addClass('compact');
+				}
+			}
+			lastScrollTop = st;
+		});
 
 
 

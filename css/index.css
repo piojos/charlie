@@ -160,7 +160,23 @@ header {
       header .dt_nav {
         display: none; } }
   header img {
-    vertical-align: middle; }
+    vertical-align: middle;
+    position: relative;
+    top: 0; }
+  header.fix {
+    position: fixed;
+    z-index: 20;
+    background: white;
+    width: 100%;
+    height: 4.25em;
+    top: 0; }
+  header.compact {
+    height: 2em; }
+    header.compact .dt_nav {
+      margin-top: 0;
+      margin-bottom: 0; }
+    header.compact .logo img {
+      top: 0.5em; }
 
 .stripe {
   background: #FFDF22;
@@ -204,6 +220,8 @@ header {
     float: right; }
   .stripe [data-hint]:after {
     font-size: 0.65em; }
+  .stripe.fix {
+    margin-top: 4.25em; }
 
 .mobile.bar {
   display: none;
@@ -623,9 +641,20 @@ nav.mobile {
   .block.video {
     background: #fffac8;
     line-height: 0;
-    overflow: visible; }
+    overflow: hidden;
+    height: 100vh;
+    position: relative;
+    z-index: 10; }
     .block.video video {
       width: 100%; }
+    .block.video .message {
+      width: 100%;
+      position: absolute;
+      text-align: center;
+      line-height: 100vh; }
+      .block.video .message img {
+        height: 10em;
+        vertical-align: middle; }
   .block .newsloop {
     margin-top: 2em;
     overflow: auto; }
@@ -980,7 +1009,11 @@ a.gotomenu {
       #currentTime.day {
         height: 2em; } }
 
-nav.mobile {
+[data-aos="huge-out"].aos-animate {
+  transform: scale(5) rotate(90deg);
+  margin-top: 35em; }
+
+nav.mobile, header .logo img {
   -moz-transition-property: top;
   -o-transition-property: top;
   -webkit-transition-property: top;
@@ -1018,6 +1051,26 @@ nav.mobile {
   -o-transition-property: top, left, height, width, opacity;
   -webkit-transition-property: top, left, height, width, opacity;
   transition-property: top left height width opacity;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s; }
+
+header {
+  -moz-transition-property: height;
+  -o-transition-property: height;
+  -webkit-transition-property: height;
+  transition-property: height;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s; }
+
+.dt_nav {
+  -moz-transition-property: margin;
+  -o-transition-property: margin;
+  -webkit-transition-property: margin;
+  transition-property: margin;
   -moz-transition-duration: 0.5s;
   -o-transition-duration: 0.5s;
   -webkit-transition-duration: 0.5s;

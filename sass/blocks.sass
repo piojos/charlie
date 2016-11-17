@@ -242,12 +242,22 @@
 	// Video
 
 	&.video
-		// min-height: 20em
 		background: $lightYellow
 		line-height: 0
-		overflow: visible
+		overflow: hidden
+		height: 100vh
+		position: relative
+		z-index: 10
 		video
 			width: 100%
+		.message
+			width: 100%
+			position: absolute
+			text-align: center
+			line-height: 100vh
+			img
+				height: 10em
+				vertical-align: middle
 
 
 
