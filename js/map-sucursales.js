@@ -70,7 +70,7 @@ function add_marker( $marker, map ) {
 		position	: latlng,
 		map			: map,
 		// icon: '<?php bloginfo('template_url'); ?>/img/pin.svg'
-		icon		: 'http://placehold.it/26'
+		icon		: '../wp-content/themes/charlie/img/gtag_mrbrown.svg'
 
 	});
 
