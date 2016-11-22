@@ -1,20 +1,39 @@
 <?php get_header(); ?>
 
 <div class="mapping">
-<?php if( have_rows('map-pins') ): ?>
-	<div class="acf-map">
-		<?php while ( have_rows('map-pins') ) : the_row();
+<?php if( have_rows('cities') ) :
 
-			$location = get_sub_field('location');
 
-			?>
-			<div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>">
-				<h4><?php the_sub_field('title'); ?></h4>
-				<p class="address"><?php echo $location['address']; ?></p><?php
-/*				<img src="<?php the_sub_field('icon'); ?>" >
-				<p>the_sub_field('description'); </p> */ ?>
-			</div>
-	<?php endwhile; ?>
+		// Controls ?>
+	<ul class="control"><?php
+		while (have_rows('cities')) {
+			the_row(); ?>
+			<li><a href="#ct<?php the_sub_field('city'); ?>"><?php the_sub_field('city'); ?></a></li><?php
+		} ?>
+	</ul>
+	<div class="maps"><?php
+
+
+		// Cities
+		while (have_rows('cities')) : the_row();
+			$city = get_sub_field('city');
+			if(have_rows('map-pins')) : ?>
+		<div class="acf-map" id="ct<?php echo $city; ?>"><?php
+			while ( have_rows('map-pins') ) : the_row();
+
+				$location = get_sub_field('location');
+
+				?>
+				<div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>">
+					<h4><?php the_sub_field('title'); ?></h4>
+					<p class="address"><?php echo $location['address']; ?></p><?php
+	/*				<img src="<?php the_sub_field('icon'); ?>" >
+					<p>the_sub_field('description'); </p> */ ?>
+				</div><?php
+			endwhile; ?>
+		</div><?php
+			endif;
+		endwhile;	?>
 	</div>
 <?php endif; ?>
 </div>

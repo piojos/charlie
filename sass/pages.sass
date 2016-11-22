@@ -1,11 +1,34 @@
 // Sucursales
 .mapping
+	position: relative
 	.acf-map
 		height: 30em
 		@media screen and (max-width: 1000px)
 			height: 18em
 	@media screen and (max-width: 600px)
 		display: none
+	.control
+		position: absolute
+		right: 2em
+		top: 2em
+		z-index: 1
+		border: .25em solid $yellow
+		padding: 0.5em 0 .5em 2.25em
+		background: rgba(255, 255, 255, 0.9)
+		box-shadow: -.5em .5em 0px rgba(0, 0, 0, 0.3)
+		min-width: 11em
+		a
+			opacity: .5
+		a.current
+			font-family: $FlamaBold
+			opacity: 1
+			position: relative
+			right: 1.75em
+			&::before
+				content: '👀 '
+				margin-right: .5em
+
+
 
 .location
 	&.tabs

@@ -145,11 +145,46 @@ var map = null;
 
 $(document).ready(function(){
 
-	$('.acf-map').each(function(){
+	$('.acf-map:nth-child(1)').each(function(){
 
+		$(this).addClass('loaded');
 		map = new_map( $(this) );
+		console.log(map);
 
 	});
+
+
+	$('.control li:nth-child(1) a').addClass('current');
+	$('.maps .acf-map:nth-child(1n+2)').fadeOut();
+
+	$('.control a').click(function(event) {
+		event.preventDefault();
+		var att = $(this).attr('href');
+		var mapId = $(att + '.acf-map');
+		$('.control a').removeClass('current');
+		$('.acf-map').fadeOut();
+		$(this).addClass('current');
+
+		mapId.fadeIn();
+
+		if(mapId.hasClass('loaded')) {
+			console.log('already loaded');
+		} else {
+			$(this).addClass('current');
+			mapId.addClass('loaded');
+			map = new_map( mapId );
+			var center = map.getCenter();
+			google.maps.event.trigger(map, "resize");
+			map.setCenter(center);
+		}
+		console.log(map);
+	});
+
+
+
+
+
+
 
 });
 

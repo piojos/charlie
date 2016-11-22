@@ -718,14 +718,36 @@ nav.mobile {
     line-height: 2em;
     margin-top: 1em; }
 
-.mapping .acf-map {
-  height: 30em; }
-  @media screen and (max-width: 1000px) {
-    .mapping .acf-map {
-      height: 18em; } }
-@media screen and (max-width: 600px) {
-  .mapping {
-    display: none; } }
+.mapping {
+  position: relative; }
+  .mapping .acf-map {
+    height: 30em; }
+    @media screen and (max-width: 1000px) {
+      .mapping .acf-map {
+        height: 18em; } }
+  @media screen and (max-width: 600px) {
+    .mapping {
+      display: none; } }
+  .mapping .control {
+    position: absolute;
+    right: 2em;
+    top: 2em;
+    z-index: 1;
+    border: 0.25em solid #FFDF22;
+    padding: 0.5em 0 0.5em 2.25em;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: -0.5em 0.5em 0px rgba(0, 0, 0, 0.3);
+    min-width: 11em; }
+    .mapping .control a {
+      opacity: 0.5; }
+    .mapping .control a.current {
+      font-family: "Flama Bold", Helvetica, Arial, sans-serif;
+      opacity: 1;
+      position: relative;
+      right: 1.75em; }
+      .mapping .control a.current::before {
+        content: "👀 ";
+        margin-right: 0.5em; }
 
 .location.tabs {
   text-align: center;
