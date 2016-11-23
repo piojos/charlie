@@ -29,7 +29,7 @@
 		} else {
 			status = 'night';
 		}
-		$('#currentTime').addClass(status);
+		$('#currentTime, body').addClass(status);
 
 
 
@@ -87,7 +87,7 @@
 				var lft = pOff.left;
 			}
 			$('body').addClass('open_modal');
-			$(fly).fadeIn('slow').css('top', (pOff.top-20)).css('left', (lft-20));
+			$(fly).fadeIn('slow').css('top', (pOff.top-20)).css('left', (lft+20));
 			$(fly).addClass('loading').html('<h1>Ay vengo!</h1>');
 			$(fly).load(link+' .food.modal > div', function(){
 				$(fly).removeClass('loading');
@@ -129,7 +129,7 @@
 			// var p = ;
 			var pos = $(this).position();
 			var pwi = $(this).width();
-			var newPointerX = pos.left + (pwi/2)-16;
+			var newPointerX = pos.left + (pwi/2)-32;
 			$('.pointer').css("left", newPointerX);
 		});
 
