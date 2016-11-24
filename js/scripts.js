@@ -102,6 +102,31 @@
 
 
 
+// Food: Current menu option
+		$('.menu_filter ul li:nth-child(1)').addClass('current');
+
+		var stickyTopSM = $('.mobile.sub_nav').offset().top;
+		var footerTop = $('footer').offset().top;
+		$(window).on( 'scroll', function(){
+			if ($(window).scrollTop() >= stickyTopSM) {
+				$('.mobile.sub_nav').addClass('fix');
+			// } else if ($(window).scrollTop() <= footerTop) {
+			// 	$('.mobile.sub_nav').removeClass('fix');
+			// 	console.log('pop');
+			} else {
+				$('.mobile.sub_nav').removeClass('fix');
+			}
+		});
+
+		window.addEventListener("hashchange", function () {
+			window.scrollTo(window.scrollX, window.scrollY - 100);
+		});
+
+
+
+
+
+
 // Food: Modals
 		var fly = '.food.modal.fly';
 		$('.food .slider a.slide').click(function(e){
