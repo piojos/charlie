@@ -39,8 +39,9 @@
 		return $elements;
 	}
 
+
 	?>
-	<body <?php body_class(); ?>>
+	<body <?php body_class(daytime()); ?>>
 
 	<header class="header clear" role="banner">
 		<div class="dt_nav wrap"><?php

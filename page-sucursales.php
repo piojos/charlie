@@ -56,7 +56,12 @@
 
 			if($dayIcon) { ?>
 	<a href="#tabC<?php echo $n++; ?>" class="hint--top" data-hint="<?php echo $name; ?>">
-		<img src="<?php echo $dayIcon['url']; ?>" alt="<?php
+		<img src="<?php
+			if(strpos(daytime(), 'night') !== false) {
+				echo $nightIcon['url'];
+			} else {
+				echo $dayIcon['url'];
+			}?>" alt="<?php
 				if(!$name) {
 					echo $imgHuge['alt'];
 				} else {

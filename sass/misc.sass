@@ -150,3 +150,42 @@ a.gotomenu
 [data-aos="huge-out"].aos-animate
 	transform: scale(5) rotate(90deg)
 	margin-top: 35em
+
+
+
+
+// Nightmode
+
+body.night
+	background: $black
+	color: $white
+	header.fix
+		background: $black
+	.stripe, a.gotomenu, .pricetag, .location.content, .block.about, [data-hint]:hover:after
+		color: $black
+	.block
+		&.contacto
+			background: url(http://placehold.it/80x30/fff&text=brick)
+			button
+				color: white
+		&.food
+			&.template h2
+				color: $yellow
+				text-shadow: .1em .1em rgba(255, 255, 255, 0.3)
+			.opts.delivery
+				background-image: url(../img/icon-moto-white.svg)
+			.opts.foodtruck
+				background-image: url(../img/icon-truck-white.svg)
+	.socks
+		// background: $black
+		// border-top: solid $yellow
+		// border-bottom: 1px dashed $yellow
+		color: $black
+	.mapping .control
+		color: $black
+		background: $white
+		box-shadow: -.5em .5em 0 rgba(255, 255, 255, 0.3)
+	.hint--top-left:before, .hint--top-right:before, .hint--top:before
+		border-top-color: $yellow
+	.location.tabs .pointer
+		background-image: url(../img/location-pointer-black.svg)
