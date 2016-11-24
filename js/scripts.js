@@ -70,6 +70,35 @@
 			]
 		});
 
+		// Autoplay videos in slider
+		$('a.dish video').each(function(i, obj) {
+			$(this).get(0).play();
+		});
+
+		// Submenu Delivery/Foodtruck Filter
+		$('.menu_filter button').click(function(){
+			$(this).toggleClass('selected');
+
+			// Shade options
+			if($('.menu_filter button').hasClass('selected')) {
+				$('.food .slider').addClass('filtered');
+			} else {
+				$('.food .slider').removeClass('filtered');
+			}
+
+			// Toggle -active
+			var att = $(this).attr('id');
+			var these = $('.food .slide.'+att);
+
+			if($(these).hasClass(att+'-active')) { 			// Off
+				$(these).removeClass(att+'-active');
+			} else { 										// On
+				$(these).each(function () {
+					$(these).addClass(att+'-active');
+				});
+			}
+		});
+
 
 
 

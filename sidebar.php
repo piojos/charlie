@@ -9,8 +9,8 @@
 	<a href="#" class="currentId">Burgers</a>
 	<div class="instructions">
 		Mostrar solo: <br>
-		<button class="delivery"><img src="<?php bloginfo('template_url'); ?>/img/icon-moto-white.svg"></button>
-		<button class="foodtruck"><img src="<?php bloginfo('template_url'); ?>/img/icon-truck-white.svg"></button>
+		<button id="delivery"><img src="<?php bloginfo('template_url'); ?>/img/icon-moto-white.svg"></button>
+		<button id="foodtruck"><img src="<?php bloginfo('template_url'); ?>/img/icon-truck-white.svg"></button>
 	</div><?php
 	if( $dishTypes ): ?>
 	<ul><?php
