@@ -177,6 +177,8 @@ header {
       margin-bottom: 0; }
     header.compact .logo img {
       top: 0.5em; }
+    header.compact ~ .mobile.sub_nav.fix {
+      top: 3em; }
 
 .admin-bar header.fix {
   top: 32px; }
@@ -278,12 +280,6 @@ header {
     position: relative;
     top: -0.1em;
     right: -0.5em; }
-  .mobile.sub_nav button {
-    border-color: white;
-    opacity: 0.5;
-    display: inline-block;
-    margin-top: 0.25em;
-    line-height: 0; }
   .mobile.sub_nav .instructions {
     font-size: 0.75em; }
 
@@ -319,6 +315,15 @@ header {
     font-family: "Flama Bold", Helvetica, Arial, sans-serif;
     font-size: 1.5em;
     letter-spacing: 0; }
+.sub_nav.menu_filter button {
+  border-color: white;
+  opacity: 0.5;
+  display: inline-block;
+  margin-top: 0.25em;
+  line-height: 0; }
+  .sub_nav.menu_filter button.selected {
+    border-color: #FFDF22;
+    opacity: 1; }
 
 nav.mobile {
   background: #FFDF22;
@@ -582,6 +587,10 @@ nav.mobile {
       float: left;
       margin-right: 0.5em;
       margin-left: 0.5em; }
+      .block.food a.dish video {
+        width: 100%; }
+      .block.food a.dish.delivery-active, .block.food a.dish.foodtruck-active {
+        opacity: 1; }
       @media screen and (max-width: 600px) {
         .block.food a.dish img {
           max-width: 75%; } }
@@ -847,6 +856,13 @@ nav.mobile {
     .location.content .tour {
       display: none; } }
 
+.mobile.sub_nav.fix {
+  position: fixed;
+  z-index: 1;
+  top: 5em; }
+  .mobile.sub_nav.fix + .food.template {
+    padding-left: 14em; }
+
 .food.modal {
   border: 6px solid #FFDF22;
   overflow: auto;
@@ -972,6 +988,8 @@ a.gotomenu {
         top: 25%;
         width: 1em;
         height: 1em; } }
+  .slider.filtered a.dish {
+    opacity: 0.25; }
 
 .acf-map {
   width: 100%; }
@@ -1041,7 +1059,36 @@ a.gotomenu {
   transform: scale(5) rotate(90deg);
   margin-top: 35em; }
 
-nav.mobile, header .logo img {
+body.night {
+  background: #231F20;
+  color: white; }
+  body.night header.fix {
+    background: #231F20; }
+  body.night .stripe, body.night a.gotomenu, body.night .pricetag, body.night .location.content, body.night .block.about, body.night [data-hint]:hover:after {
+    color: #231F20; }
+  body.night .block.contacto {
+    background: url(http://placehold.it/80x30/fff&text=brick); }
+    body.night .block.contacto button {
+      color: white; }
+  body.night .block.food.template h2 {
+    color: #FFDF22;
+    text-shadow: 0.1em 0.1em rgba(255, 255, 255, 0.3); }
+  body.night .block.food .opts.delivery {
+    background-image: url(../img/icon-moto-white.svg); }
+  body.night .block.food .opts.foodtruck {
+    background-image: url(../img/icon-truck-white.svg); }
+  body.night .socks {
+    color: #231F20; }
+  body.night .mapping .control {
+    color: #231F20;
+    background: white;
+    box-shadow: -0.5em 0.5em 0 rgba(255, 255, 255, 0.3); }
+  body.night .hint--top-left:before, body.night .hint--top-right:before, body.night .hint--top:before {
+    border-top-color: #FFDF22; }
+  body.night .location.tabs .pointer {
+    background-image: url(../img/location-pointer-black.svg); }
+
+nav.mobile, header .logo img, .mobile.sub_nav {
   -moz-transition-property: top;
   -o-transition-property: top;
   -webkit-transition-property: top;
@@ -1099,6 +1146,16 @@ header {
   -o-transition-property: margin;
   -webkit-transition-property: margin;
   transition-property: margin;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s; }
+
+a.dish {
+  -moz-transition-property: opacity;
+  -o-transition-property: opacity;
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
   -moz-transition-duration: 0.5s;
   -o-transition-duration: 0.5s;
   -webkit-transition-duration: 0.5s;
