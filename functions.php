@@ -192,22 +192,25 @@ if (function_exists('add_theme_support'))
 // Classes for blocks
 
 	function blockClass($op) {
-		if( get_row_layout() == 'promo' ) {
-			if(in_array('content', $op)) { $classes .= ' complex'; } else {$classes .= ' simple no_text'; }
+		if($op) {
+			if( get_row_layout() == 'promo' ) {
+				if(in_array('content', $op)) { $classes .= ' complex'; } else {$classes .= ' simple no_text'; }
+			}
+			if(in_array('push_top', $op)) $classes .= ' push_top';
+			if(in_array('push_bot', $op)) $classes .= ' push_bot';
+			if(in_array('pad_top', $op)) $classes .= ' pad_top';
+			if(in_array('pad_bot', $op)) $classes .= ' pad_bot';
+		} else {
+			$classes = '';
 		}
-		if(in_array('push_top', $op)) $classes .= ' push_top';
-		if(in_array('push_bot', $op)) $classes .= ' push_bot';
-		if(in_array('pad_top', $op)) $classes .= ' pad_top';
-		if(in_array('pad_bot', $op)) $classes .= ' pad_bot';
-
 		return $classes;
 	}
 
 
 // Day time class
 function daytime(){
-	// $currentHour = current_time('H');
-	$currentHour = 7; 	// tester
+	$currentHour = current_time('H');
+	// $currentHour = 7; 	// tester
 	if($currentHour >= 6 AND $currentHour < 9) {
 		$status = 'sunrise night';
 	} else if($currentHour >= 9 AND $currentHour < 17) {
