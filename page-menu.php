@@ -49,10 +49,12 @@
 			?>
 			<section id="<?php echo $term->slug; ?>">
 				<h2><?php echo $term->name; ?></h2><?php
-				if(in_array($thisID, $selCats)) { ?>
+				if($selCats) {
+					if(in_array($thisID, $selCats)) { ?>
 				<div class="notes content">
 					<?php echo $selNotes[0]; // 🐞  ?>
 				</div><?php
+					}
 				}
 				get_template_part('inc/slider', 'food'); ?>
 			</section>

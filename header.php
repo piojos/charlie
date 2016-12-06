@@ -78,8 +78,8 @@
 			while ( have_rows('mb_menu', 'options') ) : the_row();
 				$options = get_sub_field('options');
 				$isSub = '';
-
-				if(in_array('url', $options)) { ?>
+				if($options) :
+					if(in_array('url', $options)) { ?>
 			<a href="<?php the_sub_field('ext_url'); ?>"<?php if(in_array('sub', $options)) echo ' class="sub"';?>><?php the_sub_field('name'); ?></a><?php
 
 				} else {
@@ -91,9 +91,10 @@
 						setup_postdata( $post ); ?>
 			<a href="<?php the_permalink(); ?>"<?php echo $isSub; ?>><?php the_title(); ?></a><?php
 
-					wp_reset_postdata();
-				endif;
-				}
+						wp_reset_postdata();
+					endif;
+					}
+				endif; // $options
 			endwhile; ?>
 		</nav><?php
 		endif; ?>

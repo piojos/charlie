@@ -5,7 +5,9 @@
 	$imgMobile = get_sub_field('img_mobile');
 	$imgHuge = get_sub_field('img_huge');
 	$hasLink = get_sub_field('link');
-	if(in_array('bg', $options)) $hasBg = 1;
+	if($options) {
+		if(in_array('bg', $options)) $hasBg = 1;
+	}
 
 	while ( have_rows('bg') ) : the_row();
 		$bgImg = get_sub_field('image');
@@ -14,6 +16,7 @@
 
 	// echo $hasBg;
 
+	// echo $options;
 ?>
 	<div class="block promo<?php echo blockClass($options); ?>"<?php
 		if($hasBg) {
@@ -28,10 +31,12 @@
 			// <a>
 			if($hasLink) echo '<a href="'.$hasLink.'" target="_blank">';
 
-			if(in_array('content', $options)) { ?>
+			if($options) {
+				if(in_array('content', $options)) { ?>
 				<div class="wrap content">
 					<?php the_sub_field('content'); ?>
 				</div><?php
+				}
 			} else {
 				if(!$hasBg) {
 					if($imgHuge) { ?>

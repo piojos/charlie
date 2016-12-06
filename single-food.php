@@ -8,8 +8,10 @@
 		$fallback = get_sub_field('fallback');
 	}
 	$options = get_field('options');
-	if(in_array('delivery', $options)) $canDeliver = ' yes';
-	if(in_array('foodtruck', $options)) $canFoodtruck = ' yes';
+	if($options) {
+		if(in_array('delivery', $options)) $canDeliver = ' yes';
+		if(in_array('foodtruck', $options)) $canFoodtruck = ' yes';
+	}
 	$price = get_field('prize');
 	$estTime = get_field('delivery_time');
 	$defTime = get_field('delivery_fallback', 'options');
