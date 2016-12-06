@@ -573,7 +573,7 @@ nav.mobile {
       .block.explore .contact {
         display: none; } }
   .block.food {
-    background-image: url(http://placehold.it/80x40/fff&text=brick);
+    background-image: url("../img/brickwall.png");
     border-top: 1em solid #FFDF22;
     text-align: center; }
     .block.food h2 {
@@ -704,7 +704,7 @@ nav.mobile {
     font-family: "Flama Bold", Helvetica, Arial, sans-serif;
     margin-top: 2em; }
   .block.contacto {
-    background: url(http://placehold.it/80x30&text=BRICK); }
+    background: url("../img/brickwall.png"); }
     .block.contacto .wrap > div {
       width: 33%;
       float: left;
