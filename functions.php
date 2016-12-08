@@ -208,17 +208,24 @@ if (function_exists('add_theme_support'))
 
 
 // Day time class
-function daytime(){
-	$currentHour = current_time('H');
-	// $currentHour = 7; 	// tester
-	if($currentHour >= 6 AND $currentHour < 9) {
-		$status = 'sunrise night';
-	} else if($currentHour >= 9 AND $currentHour < 17) {
-		$status = 'day';
-	} else if($currentHour >= 17 AND $currentHour < 19) {
-		$status = 'sunset day';
-	} else {
-		$status = 'night';
+
+	function daytime($mid = TRUE){
+		$currentHour = current_time('H');
+		// $currentHour = 7; 	// tester
+		if($currentHour >= 6 AND $currentHour < 9) {
+			$status = 'night';
+			if($mid) {
+				$status .= ' sunrise';
+			}
+		} else if($currentHour >= 9 AND $currentHour < 17) {
+			$status = 'day';
+		} else if($currentHour >= 17 AND $currentHour < 19) {
+			$status = 'day';
+			if($mid) {
+				$status .= ' sunset';
+			}
+		} else {
+			$status = 'night';
+		}
+		return $status;
 	}
-	return $status;
-}
