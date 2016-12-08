@@ -1,64 +1,121 @@
-<?php // <section id="promos">
+<?php
 
-	$options = get_sub_field('options');
-	$imgMain = get_sub_field('img_big');
-	$imgMobile = get_sub_field('img_mobile');
-	$imgHuge = get_sub_field('img_huge');
-	$hasLink = get_sub_field('link');
-	if($options) {
-		if(in_array('bg', $options)) $hasBg = 1;
+	// Get fallbacks
+	if(have_rows('promo_fallback')) {
+		while (have_rows('promo_fallback')) {
+			the_row();
+			$fallbackDay = get_sub_field('day');
+			$fallbackbNight = get_sub_field('day');
+		}
 	}
 
-	while ( have_rows('bg') ) : the_row();
-		$bgImg = get_sub_field('image');
-		$bgColor = get_sub_field('color');
-	endwhile;
+	// Get today's Promos
+	$time = current_time('H');
+	$day = strtolower(current_time('D'));
+	$dayCheck = 'promo_'.$day;
 
-	// echo $hasBg;
+	if(have_rows($dayCheck)) {
+		while (have_rows($dayCheck)) {
+			the_row();
+			$todayDay = get_sub_field('day');
+			$todayNite = get_sub_field('night');
+		}
+	}
 
-	// echo $options;
-?>
-	<div class="block promo<?php echo blockClass($options); ?>"<?php
-		if($hasBg) {
+	// Check for today
+	if(daytime(0) == 'day') {
+		if($todayDay) {
+			$post_objects = $todayDay;
+		} elseif($fallbackDay) {
+			$post_objects = $fallbackDay;
+		}
+	} else {
+		if($todayNight) {
+			$post_objects = $todayNight;
+		} elseif($fallbackbNight) {
+			$post_objects = $fallbackbNight;
+		}
+	}
 
-			echo 'style="';
-			// if($bgImg)
-			echo 'background-image:url('.$bgImg['url'].'); ';
-			if($bgColor) echo 'background-color:'.$bgColor.'; ';
-			echo '"';
-		} ?>><?php
+	// Check for today
+	if( $post_objects ): ?>
 
-			// <a>
-			if($hasLink) echo '<a href="'.$hasLink.'" target="_blank">';
+	<section id="promos"><?php
+		foreach( $post_objects as $post):
+			setup_postdata($post);
+			$options = get_field('options');
+			$imgTitle = get_field('img_title');
+			$imgMain = get_field('img_main');
+			$link = get_field('link');
 
-			if($options) {
-				if(in_array('content', $options)) { ?>
-				<div class="wrap content">
-					<?php the_sub_field('content'); ?>
-				</div><?php
-				}
-			} else {
-				if(!$hasBg) {
-					if($imgHuge) { ?>
-						<img src="<?php echo $imgHuge['url']; ?>" class="huge" alt="<?php echo $imgHuge['alt']; ?>"><?php
-					} else { ?>
-						<img src="<?php echo $imgMain['url']; ?>" class="huge" alt="<?php echo $imgMain['alt']; ?>"><?php
-					}
-				} ?>
-				<img src="<?php echo $imgMain['sizes']['large']; ?>" class="<?php if(!$hasBg) { echo 'large'; } else { echo 'both'; } ?>"><?php
-				if($imgMobile) { ?>
-					<img src="<?php echo $imgMobile['url']; ?>" class="mobile" alt="<?php echo $imgMobile['alt']; ?>"><?php
-				} else { ?>
-					<img src="<?php echo $imgMain['sizes']['medium']; ?>" class="mobile" alt="<?php echo $imgMain['alt']; ?>"><?php
-				}
+			while(have_rows('bg')) {
+				the_row();
+				$bgOpts = get_sub_field('options');
+				$bgCol1 = get_sub_field('color');
+				$bgCol2 = get_sub_field('color_end');
+				$bgImgD = get_sub_field('image');
+				$bgImgM = get_sub_field('image_mobile');
 			}
 
-			// <a>
-			if($hasLink) echo '</a>'; ?>
-	</div>
+			if($bgOpts == 'solid') { 			//  : Color Sólido
+				$addedOptions = 'background:'.$bgCol1;
+			} elseif($bgOpts == 'linear') { 	//  : Degradado Linear
+				$addedOptions = 'background: '.$bgCol1.';
+				background: -moz-linear-gradient(top,  '.$bgCol1.' 0%, '.$bgCol2.' 100%);
+				background: -webkit-linear-gradient(top,  '.$bgCol1.' 0%, '.$bgCol2.' 100%);
+				background: linear-gradient(to bottom,  '.$bgCol1.' 0%, '.$bgCol2.' 100%);
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='.$bgCol1.', endColorstr='.$bgCol2.',GradientType=0 ); ';
 
-<?php /*
-	<div class="block promo complex push_top push_bot no_text back_cover" >
+			} elseif($bgOpts == 'radial') { 	//  : Degradado Radial
+				$addedOptions = 'background: '.$bgCol1.';
+				background: -moz-radial-gradient(center, ellipse cover, '.$bgCol1.' 0%, '.$bgCol2.' 100%);
+				background: -webkit-radial-gradient(center, ellipse cover, '.$bgCol1.' 0%, '.$bgCol2.' 100%);
+				background: radial-gradient(ellipse at center, '.$bgCol1.' 0%, '.$bgCol2.' 100%);
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='.$bgCol1.', endColorstr='.$bgCol2.',GradientType=1 );';
+
+			} elseif($bgOpts == 'img') { 		//  : Imagen completa
+				$addedOptions = 'background-image: url('.$bgImgD['url'].'); background-size: cover; background-position: center;';
+			} elseif($bgOpts == 'pattern') { 		//  : Patrón de fondo
+				$addedOptions = 'background-image: url('.$bgImgD['url'].'); background-size: initial; background-position: center;';
+			}
+			// echo $bgOpts.'<br>';
+			// echo $addedOptions;
+			?>
+
+		<div class="block<?php echo blockClass($options) .' '. $bgOpts;?>" <?php echo 'style="'.$addedOptions.'"'?>><?php
+
+			if($link) { ?>
+				<a href="<?php echo $link; ?>" title="<?php the_title(); ?>" class="wrap"><?php
+			} else { ?>
+				<div class="wrap"><?php
+			}
+
+			if($imgTitle) { ?>
+				<div class="title"><img src="<?php echo $imgTitle['sizes']['medium']; ?>" alt="<?php echo $imgTitle['alt']; ?>"></div><?php
+			}
+
+			if($imgMain) { ?>
+				<div class="burger"><img src="<?php echo $imgMain['url']; ?>" alt="<?php echo $imgMain['alt']; ?>"></div><?php
+			} ?>
+
+				<div class="caption">
+					<?php the_field('caption'); ?>
+				</div><?php
+
+			if($link) { ?>
+				</a><?php
+			} else { ?>
+				</div><?php
+			} ?>
+		</div><?php
+		endforeach; ?>
+
+	</section><?php
+	wp_reset_postdata();
+	endif;
+
+
+/*
 		<!-- no_text: No text, removes the inline-style bottom margin from images & no .wrap on content -->
 		<!-- back_cover back_center -->
 		<div class="content">
@@ -66,13 +123,4 @@
 				<img src="http://placehold.it/1000x500&text=LARGE">
 			</div>
 		</div>
-	</div>
-
-
-	<div class="block promo complex pad_top pad_bot" style="background-color:#FFB6C1">
-		<!-- style="background-image:url(http://placehold.it/80x40&text=tile)" -->
-		<!-- back_cover back_center back_tile: style="background-image:url(tile.jpg)" -->
-		<div class="wrap content">
-		</div>
-	</div>
-</section> */ ?>
+	</div> */ ?>

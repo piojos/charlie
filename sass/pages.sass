@@ -209,3 +209,19 @@ article
 		font-family: $FlamaBold
 	.content
 		line-height: 1.75em
+
+
+
+// Promos
+#promos
+	.block
+		+background-image(radial-gradient($white, $yellow))
+		text-align: center
+	@media screen and (min-width: 1000px)
+		.wrap > div
+			width: 50%
+			float: right
+		.burger
+			float: left
+		.caption
+			margin-top: -4%
