@@ -229,3 +229,38 @@ if (function_exists('add_theme_support'))
 		}
 		return $status;
 	}
+
+
+
+
+// StyleSelect Edit
+
+	// function my_mce_before_init_insert_formats( $init_array ) {
+	// 	$style_formats = array(
+	// 		array( 'title' => 'Big', 'block' => 'h1', 'classes' => 't28' ),
+	// 		array( 'title' => 'Font Size', 'items' => array(
+	// 			array( 'title' => '18pt', 'block' => 'span', 'classes' => 't18', 'wrapper' => true ),
+	// 			array( 'title' => '24pt', 'block' => 'span', 'classes' => 't24', 'wrapper' => true )
+	// 		))
+	// 	);
+	// 	$init_array['style_formats'] = json_encode( $style_formats );
+	// 	return $init_array;
+	// }
+	// add_filter( 'tiny_mce_before_init', 'my_mce_before_init_insert_formats' );
+
+
+// Nuevos WYSIWYGs
+
+	add_filter( 'acf/fields/wysiwyg/toolbars' , 'my_toolbars'  );
+	function my_toolbars( $toolbars ) {
+
+		$toolbars['Basic'][1] = array('bold' , 'forecolor' , 'underline' , 'removeformat' );
+
+		$toolbars['Completo'][1] = array('styleselect' , 'bold' , 'bullist' , 'numlist' , 'link' , 'unlink' , 'table' , 'tableprops' , 'deletetable' , 'cell' , 'row' , 'column' , 'removeformat', );
+
+		// remove the 'Full' toolbar completely
+		unset( $toolbars['Full'] );
+
+		// return $toolbars - IMPORTANT!
+		return $toolbars;
+	}
