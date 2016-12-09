@@ -302,9 +302,11 @@
 
 	// Newsloop
 
-	&.faq dt
-		font-family: $FlamaBold
-		margin-top: 2em
+	&.faq
+		.wrap.tight
+			margin-top: 2em
+		img
+			height: auto
 
 
 
@@ -321,15 +323,16 @@
 		h3
 			font-family: $FlamaCnBold
 			font-size: 1.25em
-		p, form, ul
+		p, ul
 			font-size: .8em
 			margin-bottom: 1em
 		input, textarea
 			margin-bottom: .75em
 			padding: .5em .75em
-		button
+		input.button
 			font-family: $FlamaCnBold
 			font-size: 1.25em
+			width: inherit
 
 
 

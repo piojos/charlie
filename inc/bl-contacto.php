@@ -16,12 +16,6 @@
 		<div>
 			<h3><?php the_sub_field('title'); ?></h3>
 			<?php the_sub_field('info'); ?>
-			<form>
-				<input type="text" placeholder="Nombre">
-				<input type="text" placeholder="Correo">
-				<textarea placeholder="Mensaje"></textarea>
-				<button type="submit">Enviar</button>
-			</form>
 		</div><?php
 	endwhile;
 
