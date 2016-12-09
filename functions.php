@@ -255,6 +255,7 @@ if (function_exists('add_theme_support'))
 	function my_toolbars( $toolbars ) {
 
 		$toolbars['Basic'][1] = array('bold' , 'forecolor' , 'underline' , 'removeformat' );
+		$toolbars['BasicLinked'][1] = array('bold' , 'forecolor' , 'underline' , 'link' , 'unlink' , 'removeformat' );
 
 		$toolbars['Completo'][1] = array('styleselect' , 'bold' , 'bullist' , 'numlist' , 'link' , 'unlink' , 'table' , 'tableprops' , 'deletetable' , 'cell' , 'row' , 'column' , 'removeformat', );
 
