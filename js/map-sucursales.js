@@ -21,12 +21,10 @@
 
 	if($('body').hasClass('day')) {			// Sunrise
 		timeoDay = dayStyle;
-		console.log(' es de dia! ');
 	} else if($('body').hasClass('night')) {											// Night
 		timeoDay = nightStyle;
-		console.log(' Noche ');
 	} else {
-		console.log('Error');
+		console.log('Error: Could not get daytime().');
 	}
 
 function new_map( $el ) {

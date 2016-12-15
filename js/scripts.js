@@ -178,7 +178,7 @@
 		});
 
 		if ($('.location.tabs').length){
-			var p = $('.location.tabs > a:first-child');
+			var p = $('.location.tabs a:nth-child(1)');
 			var pos = p.position();
 			var pwi = p.width();
 			var initialPointerX = pos.left + pwi/2;
