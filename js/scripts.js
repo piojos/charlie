@@ -116,6 +116,7 @@
 // Food: Modals
 		var fly = '.food.modal.fly';
 		$('.food .slider a.slide').click(function(e){
+			e.stopPropagation()
 			e.preventDefault();
 			var link = jQuery(this).attr('href');
 			var pOff = $(this).offset();
@@ -134,6 +135,9 @@
 			});
 		});
 		$('button.slick-arrow').click(function(){
+			$(fly).fadeOut('slow');
+		});
+		$(window).click(function(){
 			$(fly).fadeOut('slow');
 		});
 		// $('body').click(function(e) {
