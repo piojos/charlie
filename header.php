@@ -102,8 +102,14 @@
 
 	<div class="stripe">
 		<div class="wrap">
-			<div>Buen día Bro</div>
+			<div><?php
+			if(daytime(0) === 'day') {
+				echo 'Buen día Bro';
+			} elseif(daytime(0) === 'night') {
+				echo 'Buenas noches 😴';
+			}
+			 ?></div>
 			<div class="text_promo"><?php the_field('stripe_promo', 'option'); ?></div>
-			<div id="currentTime"></div>
+			<div id="currentTime" class="<?php echo daytime(); ?>"></div>
 		</div>
 	</div>
