@@ -164,8 +164,8 @@ body.night
 	.stripe, a.gotomenu, .pricetag, .location.content, .block.about, [data-hint]:hover:after
 		color: $black
 	.block
-		&.contacto
-			background: url(http://placehold.it/80x30/fff&text=brick)
+		&.contacto, &.food
+			background-image: url('../img/brick-black.png')
 			button
 				color: white
 		&.food
@@ -195,3 +195,11 @@ body.night
 			text-shadow: .1em .1em rgba(255, 255, 255, 0.3)
 		input, textarea
 			background: rgba(0,0,0,0.25)
+	.food.modal
+		background: rgba(0,0,0,0.9)
+		h1
+			text-shadow: none
+			color: $yellow
+		.opts
+			background: $white
+			color: $black
