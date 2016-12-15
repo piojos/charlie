@@ -1,7 +1,7 @@
 <?php
 
 	get_header();
-	while (have_posts()) : the_post();
+	if (have_posts()) : while (have_posts()) : the_post();
 
 	while (have_rows('video')) {
 		the_row();
@@ -33,13 +33,22 @@
 
 					<div class="options"><?php
 
+					if(daytime(0) == 'day') {
+						$iconColor = 'yellow';
+					} else {
+						$iconColor = 'black';
+					}
+
 					if($price) {
 						echo '<div class="pricetag">'. $price . '</div>';
 					}
 
+
+					if($canDeliver AND $canFoodtruck) echo '<div class="both">';
+
 					if($canDeliver) { ?>
 						<div class="opts delivery">
-							<img src="<?php bloginfo('template_url'); ?>/img/icon-moto-yellow.svg" width="40" />
+							<img src="<?php bloginfo('template_url'); ?>/img/icon-moto-<?php echo $iconColor; ?>.svg" width="40" />
 							<span>Disfrutala en</span><br><?php
 						if($estTime){
 							echo $estTime;
@@ -51,15 +60,19 @@
 
 					if($canFoodtruck) { ?>
 						<div class="opts truck">
-							<img src="<?php bloginfo('template_url'); ?>/img/icon-truck-yellow.svg" width="60" />
+							<img src="<?php bloginfo('template_url'); ?>/img/icon-truck-<?php echo $iconColor; ?>.svg" width="60" />
 							<span>FOOD <br>
 							Truck</span>
 						</div><?php
-					} ?>
+					}
+
+					if($canDeliver AND $canFoodtruck) echo '</div>';
+
+
+					?>
 					</div>
 					<div class="about">
-						<p>Pan artesanal, glasse balsámico, piña, cebolla frita, carne mr. brown, mayo chipotle, lechuga, tomate y queso provolone. <br>
-						<strong>Incluye</strong> 🍟.</p>
+						<?php the_field('description'); ?>
 					</div>
 				</div>
 			</div>
@@ -67,5 +80,5 @@
 		</div>
 	</article><?php
 
-	endwhile;
+	endwhile; endif;
 	get_footer(); ?>
