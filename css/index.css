@@ -557,9 +557,10 @@ nav.mobile {
       .block.explore .contact {
         display: none; } }
   .block.food {
-    background-image: url("../img/brickwall.png");
+    background-image: url("../img/brick-white.png");
     border-top: 1em solid #FFDF22;
-    text-align: center; }
+    text-align: center;
+    background-size: 12%; }
     .block.food h2 {
       margin: 1em 0; }
     .block.food .mobile {
@@ -585,6 +586,7 @@ nav.mobile {
         display: block; } }
     .block.food .notes {
       background: #FFDF22;
+      color: #231F20;
       margin-bottom: 1em;
       text-align: left;
       padding: 1em;
@@ -608,7 +610,6 @@ nav.mobile {
         background-image: url("../img/icon-truck-black.svg");
         margin-right: 0.35em; }
     .block.food.template {
-      background: none;
       border-top: none; }
       .block.food.template section {
         margin-bottom: 8em; }
@@ -689,7 +690,8 @@ nav.mobile {
   .block.faq img {
     height: auto; }
   .block.contacto {
-    background: url("../img/brickwall.png"); }
+    background: url("../img/brick-white.png");
+    background-size: 12%; }
     .block.contacto .wrap > div {
       width: 33%;
       float: left;
@@ -878,6 +880,8 @@ nav.mobile {
     margin-left: 1em;
     position: relative;
     top: -1em; }
+    .food.modal .opts:nth-child(1) {
+      margin-right: 3em; }
     .food.modal .opts > span {
       font-family: "FlamaCn", Helvetica, Arial, sans-serif;
       letter-spacing: 0; }
@@ -908,6 +912,14 @@ nav.mobile {
     font-family: "Flama Bold", Helvetica, Arial, sans-serif;
     text-align: center;
     padding-top: 6em; }
+  .food.modal .both {
+    margin-top: -1em;
+    position: relative;
+    left: -0.6em;
+    top: -1.5em; }
+    .food.modal .both .opts {
+      transform: scale(0.75);
+      margin-left: 0; }
 
 article {
   margin: 4em 0; }
@@ -1073,9 +1085,9 @@ body.night {
     background: #231F20; }
   body.night .stripe, body.night a.gotomenu, body.night .pricetag, body.night .location.content, body.night .block.about, body.night [data-hint]:hover:after {
     color: #231F20; }
-  body.night .block.contacto {
-    background: url(http://placehold.it/80x30/fff&text=brick); }
-    body.night .block.contacto button {
+  body.night .block.contacto, body.night .block.food {
+    background-image: url("../img/brick-black.png"); }
+    body.night .block.contacto button, body.night .block.food button {
       color: white; }
   body.night .block.food.template h2 {
     color: #FFDF22;
@@ -1099,6 +1111,14 @@ body.night {
     text-shadow: 0.1em 0.1em rgba(255, 255, 255, 0.3); }
   body.night article input, body.night article textarea {
     background: rgba(0, 0, 0, 0.25); }
+  body.night .food.modal {
+    background: rgba(0, 0, 0, 0.9); }
+    body.night .food.modal h1 {
+      text-shadow: none;
+      color: #FFDF22; }
+    body.night .food.modal .opts {
+      background: white;
+      color: #231F20; }
 
 nav.mobile, header .logo img, .mobile.sub_nav {
   -moz-transition-property: top;
