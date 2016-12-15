@@ -91,7 +91,7 @@
 			}
 
 			if($imgTitle) { ?>
-				<div class="title"><img src="<?php echo $imgTitle['sizes']['medium']; ?>" alt="<?php echo $imgTitle['alt']; ?>"></div><?php
+				<div class="title"><img src="<?php echo $imgTitle['sizes']['large']; ?>" alt="<?php echo $imgTitle['alt']; ?>"></div><?php
 			}
 
 			if($imgMain) { ?>
