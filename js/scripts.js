@@ -16,24 +16,6 @@
 
 
 
-// Timeshifts related
-		var d = new Date();
-		var currentHour = d.getHours();
-		var status;
-		if(currentHour >= 6 && currentHour < 9) {
-			status = 'sunrise';
-		} else if(currentHour >= 9 && currentHour < 17) {
-			status = 'day';
-		} else if(currentHour >= 17 && currentHour < 19) {
-			status = 'sunset';
-		} else {
-			status = 'night';
-		}
-		$('#currentTime, body').addClass(status);
-
-
-
-
 // Food Sliders
 		$('.food .slider').slick({
 			dots: false,
