@@ -32,7 +32,7 @@
 					<?php the_post_thumbnail("large"); ?>
 					<h3><?php the_title(); ?></h3>
 					<p><?php the_date('M j Y'); ?> por <strong><?php the_author(); ?></strong>.</p>
-					<p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id risus sit amet odio posuere commodo non ut metus. Aenean ipsum felis, rutrum id lacus et, blandit mollis orci…</p>
+					<p class="excerpt"><?php the_excerpt(); ?></p>
 				</a>
 			</div><?php
 		}
@@ -40,7 +40,7 @@
 			$restPost->the_post(); ?>
 			<div>
 				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-					<?php the_post_thumbnail('medium'); ?>
+					<?php the_post_thumbnail('news'); ?>
 					<h3><?php the_title(); ?></h3>
 					<p><?php the_time('M j Y'); ?> por <strong><?php the_author(); ?></strong>.</p>
 				</a>
