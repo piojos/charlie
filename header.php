@@ -69,7 +69,7 @@
 				<img src="<?php echo $mainLogo['url']; ?>" alt="<?php echo $mainLogo['alt']; ?>" width="24" />
 			</a><?php
 		endif; ?>
-			<h1 class="breadcrumbs">Inicio / Promos</h1>
+			<h1 class="breadcrumbs"><?php if(is_home()) echo 'Inicio / '; the_title(); ?></h1>
 			<button class="toggle"><span>🍔</span><span class="hide">❌</span></button>
 		</div><?php
 
@@ -78,14 +78,12 @@
 			while ( have_rows('mb_menu', 'options') ) : the_row();
 				$options = get_sub_field('options');
 				$isSub = '';
-				if($options) : /*
+				if($options) {
 					if(in_array('url', $options)) { ?>
-			<a href="<?php the_sub_field('ext_url'); ?>"<?php if(in_array('sub', $options)) echo ' class="sub"';?>><?php the_sub_field('name'); ?></a><?php
+			<a href="<?php the_sub_field('ext_url'); ?>"<?php if(in_array('sub', $options)) echo ' class="sub"'; ?>><?php the_sub_field('name'); ?></a><?php
 					}
-				else :
-
+				} else {
 					$post_object = get_sub_field('page-item');
-					if(in_array('sub', $options)) $isSub = ' class="sub"';
 					if( $post_object ):
 						$post = $post_object;
 						setup_postdata( $post ); ?>
@@ -93,8 +91,7 @@
 
 						wp_reset_postdata();
 					endif;
-					} */
-				endif; // $options
+				} // $options
 			endwhile; ?>
 		</nav><?php
 		endif; ?>

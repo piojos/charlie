@@ -46,6 +46,8 @@ header
 		width: 100%
 		height: 4.25em
 		top: 0
+		@media screen and (max-width: 600px)
+			background: none
 	&.compact
 		height: 2em
 		.dt_nav
@@ -56,10 +58,15 @@ header
 		~ .mobile.sub_nav.fix
 			top: 3em
 
-.admin-bar header.fix
-	top: 32px
-	@media screen and (max-width: 782px)
-		top: 46px
+
+
+.admin-bar
+	.open_nav nav.mobile
+		top: 5em
+	header.fix
+		top: 32px
+		@media screen and (max-width: 782px)
+			top: 46px
 
 
 
@@ -204,10 +211,10 @@ header
 nav.mobile
 	background: $yellow
 	text-align: left
-	padding-left: 3em
+	padding-left: 2.6em
 	padding-bottom: .5em
 	position: absolute
-	top: -100%
+	top: -20em
 	z-index: 1
 	width: 100%
 	display: none
