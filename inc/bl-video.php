@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 if(have_rows('intro')) :
 	while(have_rows('intro')) { the_row();
@@ -18,11 +18,14 @@ endif;
 	if($mp4 OR $webm OR $fallback) : ?>
 
 	<div class="block video<?php echo $introClass; ?>"><?php
-		if( !empty($animatedLogo) ): ?>
+
+		if( is_front_page() ): if( !empty($animatedLogo) ) { ?>
+
 		<div class="message">
 			<img id="sticky" src="<?php echo $animatedLogo['url']; ?>" alt="<?php echo $animatedLogo['alt']; ?>" class="random" data-aos="huge-out" data-aos-anchor-placement="top-top" />
 		</div><?php
-		endif; ?>
+		} endif; ?>
+
 		<video poster='<?php echo $fallback[url]; ?>' playsinline autoplay muted loop ><?php
 		if($webm) { ?>
 			<source src='<?php echo $webm[url]; ?>' type='video/webm'><?php
