@@ -1,6 +1,12 @@
 <?php
 
-	while (have_rows('video')) {
+	if(daytime(0) == 'day') {
+		$video = 'video';
+	} else {
+		$video = 'video_nite';
+	}
+
+	while (have_rows($video)) {
 		the_row();
 		$mp4 = get_sub_field('mp4');
 		$webm = get_sub_field('webm');
