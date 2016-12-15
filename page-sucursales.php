@@ -74,7 +74,6 @@
 	<div class="pointer"></div>
 </div><?php
 
-		$n = 1;
 	endif;
 
 
@@ -82,11 +81,12 @@
 
 	// Content
 
+	$o = 1;
 	if(have_rows('business')) : ?>
 <section id="content" class="location content slider"><?php
 		while (have_rows('business')) :
 			the_row(); ?>
-	<div class="slide" id="tabC<?php echo $n++;?>">
+	<div class="slide" id="tabC<?php echo $o++;?>">
 		<div class="wrap">
 			<div class="info">
 				<h2><?php the_sub_field('name'); ?> </h2>
